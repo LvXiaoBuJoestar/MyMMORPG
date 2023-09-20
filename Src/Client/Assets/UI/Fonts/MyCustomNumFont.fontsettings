@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!128 &12800000
+Font:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MyCustomNumFont
+  serializedVersion: 5
+  m_LineSpacing: 56
+  m_DefaultMaterial: {fileID: 2100000, guid: 72339435db1593b4b8239e6aff8e8189, type: 2}
+  m_FontSize: 0
+  m_Texture: {fileID: 0}
+  m_AsciiStartOffset: 0
+  m_Tracking: 1
+  m_CharacterSpacing: 0
+  m_CharacterPadding: 1
+  m_ConvertCase: 0
+  m_CharacterRects:
+  - serializedVersion: 2
+    index: 48
+    uv:
+      serializedVersion: 2
+      x: 0.0009
+      y: 0.5746
+      width: 0.02461258
+      height: 0.21641791
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 27
+      height: -29
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 49
+    uv:
+      serializedVersion: 2
+      x: 0.025524156
+      y: 0.57462686
+      width: 0.02461258
+      height: 0.2164179
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 27
+      height: -29
+    advance: 24
+    flipped: 0
+  - serializedVersion: 2
+    index: 50
+    uv:
+      serializedVersion: 2
+      x: 0.047402006
+      y: 0.574626
+      width: 0.024612
+      height: 0.2164179
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 27
+      height: -29
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 51
+    uv:
+      serializedVersion: 2
+      x: 0.06927986
+      y: 0.57462686
+      width: 0.024612
+      height: 0.2164179
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 27
+      height: -29
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 52
+    uv:
+      serializedVersion: 2
+      x: 0.09206928
+      y: 0.5671642
+      width: 0.024612
+      height: 0.2164179
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 27
+      height: -29
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 53
+    uv:
+      serializedVersion: 2
+      x: 0.11485871
+      y: 0.5597015
+      width: 0.023701003
+      height: 0.2164179
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 26
+      height: -29
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 54
+    uv:
+      serializedVersion: 2
+      x: 0.13673656
+      y: 0.5597015
+      width: 0.023701003
+      height: 0.2238806
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 26
+      height: -30
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 55
+    uv:
+      serializedVersion: 2
+      x: 0.15952598
+      y: 0.5522388
+      width: 0.020966271
+      height: 0.2238806
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 23
+      height: -30
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 56
+    uv:
+      serializedVersion: 2
+      x: 0.17958067
+      y: 0.5597015
+      width: 0.022789426
+      height: 0.2238806
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 25
+      height: -30
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 57
+    uv:
+      serializedVersion: 2
+      x: 0.20419325
+      y: 0.5597015
+      width: 0.022789426
+      height: 0.2238806
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 25
+      height: -30
+    advance: 27
+    flipped: 0
+  - serializedVersion: 2
+    index: 37
+    uv:
+      serializedVersion: 2
+      x: 0.22698268
+      y: 0.53731346
+      width: 0.030082041
+      height: 0.23134328
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 33
+      height: -31
+    advance: 0
+    flipped: 0
+  m_KerningValues: []
+  m_PixelScale: 0.1
+  m_FontData: 
+  m_Ascent: 0
+  m_Descent: 0
+  m_DefaultStyle: 0
+  m_FontNames: []
+  m_FallbackFonts: []
+  m_FontRenderingMode: 0
+  m_UseLegacyBoundsCalculation: 0
+  m_ShouldRoundAdvanceValue: 1
