@@ -33,6 +33,7 @@ public class LoadingManager : MonoBehaviour
         yield return DataManager.Instance.LoadData();
 
         UserService.Instance.Init();
+        MapService.Instance.Init();
 
         for (float i = 50; i < 100;)
         {

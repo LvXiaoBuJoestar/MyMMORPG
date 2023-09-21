@@ -33,7 +33,7 @@ namespace GameServer.Managers
         public Character AddCharacter(TCharacter character)
         {
             Character cha = new Character(CharacterType.Player, character);
-            characters.Add(cha.Id, cha);
+            characters[cha.Id] = cha;
             return cha;
         }
 
