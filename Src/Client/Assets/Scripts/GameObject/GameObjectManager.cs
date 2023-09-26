@@ -7,20 +7,22 @@ using SkillBridge.Message;
 using Managers;
 using Models;
 
-public class GameObjectManager : MonoBehaviour
+public class GameObjectManager : MonoSingleton<GameObjectManager>
 {
 
     Dictionary<int, GameObject> Characters = new Dictionary<int, GameObject>();
 
-    void Start()
+    protected override void OnStart()
     {
         StartCoroutine(InitGameObjects());
-        CharacterManager.Instance.OnCharacterEnter = OnCharacterEnter;
+        CharacterManager.Instance.OnCharacterEnter += OnCharacterEnter;
+        CharacterManager.Instance.OnCharacterLeave += OnCharacterLeave;
     }
 
     private void OnDestroy()
     {
-        CharacterManager.Instance.OnCharacterEnter = null;
+        CharacterManager.Instance.OnCharacterEnter -= OnCharacterEnter;
+        CharacterManager.Instance.OnCharacterLeave -= OnCharacterLeave;
     }
 
     void Update()
@@ -31,6 +33,17 @@ public class GameObjectManager : MonoBehaviour
     void OnCharacterEnter(Character cha)
     {
         CreateCharacterObject(cha);
+    }
+
+    void OnCharacterLeave(Character cha)
+    {
+        if (!Characters.ContainsKey(cha.entityId)) return;
+
+        if (Characters[cha.entityId] != null)
+        {
+            Destroy(Characters[cha.entityId]);
+            Characters.Remove(cha.entityId);
+        }
     }
 
     IEnumerator InitGameObjects()
@@ -44,7 +57,7 @@ public class GameObjectManager : MonoBehaviour
 
     private void CreateCharacterObject(Character character)
     {
-        if (!Characters.ContainsKey(character.Info.Id) || Characters[character.Info.Id] == null)
+        if (!Characters.ContainsKey(character.entityId) || Characters[character.entityId] == null)
         {
             Object obj = Resloader.Load<Object>(character.Define.Resource);
             if (obj == null)
@@ -52,37 +65,42 @@ public class GameObjectManager : MonoBehaviour
                 Debug.LogErrorFormat("Character[{0}] Resource[{1}] not existed.", character.Define.TID, character.Define.Resource);
                 return;
             }
-            GameObject go = (GameObject)Instantiate(obj);
+            GameObject go = (GameObject)Instantiate(obj,transform);
             go.name = "Character_" + character.Info.Id + "_" + character.Info.Name;
+            Characters[character.entityId] = go;
 
-            go.transform.position = GameObjectTool.LogicToWorld(character.position);
-            go.transform.forward = GameObjectTool.LogicToWorld(character.direction);
-            Characters[character.Info.Id] = go;
-
-            EntityController ec = go.GetComponent<EntityController>();
-            if (ec != null)
-            {
-                ec.entity = character;
-                ec.isPlayer = character.IsPlayer;
-            }
-
-            PlayerInputController pc = go.GetComponent<PlayerInputController>();
-            if (pc != null)
-            {
-                if (character.Info.Id == Models.User.Instance.CurrentCharacter.Id)
-                {
-                    User.Instance.currentCharacter = go;
-                    MainPlayerCamera.Instance.player = go;
-                    pc.enabled = true;
-                    pc.character = character;
-                    pc.entityController = ec;
-                }
-                else
-                {
-                    pc.enabled = false;
-                }
-            }
             UIWorldElementManager.Instance.AddCharacterNameBar(go.transform, character);
+        }
+        InitGameObject(Characters[character.entityId], character);
+    }
+
+    void InitGameObject(GameObject go, Character character)
+    {
+        go.transform.position = GameObjectTool.LogicToWorld(character.position);
+        go.transform.forward = GameObjectTool.LogicToWorld(character.direction);
+
+        EntityController ec = go.GetComponent<EntityController>();
+        if (ec != null)
+        {
+            ec.entity = character;
+            ec.isPlayer = character.IsPlayer;
+        }
+
+        PlayerInputController pc = go.GetComponent<PlayerInputController>();
+        if (pc != null)
+        {
+            if (character.Info.Id == Models.User.Instance.CurrentCharacter.Id)
+            {
+                User.Instance.currentCharacter = go;
+                MainPlayerCamera.Instance.player = go;
+                pc.enabled = true;
+                pc.character = character;
+                pc.entityController = ec;
+            }
+            else
+            {
+                pc.enabled = false;
+            }
         }
     }
 }

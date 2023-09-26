@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\GameObject\GameObjectTool.cs" />
     <Compile Include="Assets\Scripts\UI\UIWorldElementManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIRegister.cs" />
+    <Compile Include="Assets\Scripts\Managers\EntityManager.cs" />
     <Compile Include="Assets\Scripts\UI\CheckFrame.cs" />
     <Compile Include="Assets\Scripts\GameObject\MainPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\UI\UIWorldElement.cs" />

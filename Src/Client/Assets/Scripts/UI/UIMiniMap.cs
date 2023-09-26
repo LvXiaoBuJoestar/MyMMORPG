@@ -27,6 +27,8 @@ public class UIMiniMap : MonoBehaviour
 
     private void Update()
     {
+        if (cityBox == null || playerTransform == null) return;
+
         float relativeX = playerTransform.position.x - minX;
         float relativeY = playerTransform.position.z - minZ;
 

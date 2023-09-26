@@ -18,7 +18,7 @@ namespace Services
             MessageDistributer.Instance.Subscribe<MapCharacterLeaveResponse>(OnMapCharacterLeave);
         }
 
-        public int currentMapId { get; private set; }
+        public int currentMapId { get; set; }
 
         public void Dispose()
         {
@@ -52,7 +52,16 @@ namespace Services
 
         private void OnMapCharacterLeave(object sender, MapCharacterLeaveResponse message)
         {
-            
+            Debug.LogFormat("OnMapCharacterLeave:characterId:{0}", message.characterId);
+
+            if(message.characterId != User.Instance.CurrentCharacter.Id)
+            {
+                CharacterManager.Instance.RemoveCharacter(message.characterId);
+            }
+            else
+            {
+                CharacterManager.Instance.Clear();
+            }
         }
 
         private void EnterMap(int mapId)

@@ -28,6 +28,7 @@ namespace Services
             MessageDistributer.Instance.Subscribe<UserRegisterResponse>(this.OnUserRegister);
             MessageDistributer.Instance.Subscribe<UserCreateCharacterResponse>(this.OnCharacterCreate);
             MessageDistributer.Instance.Subscribe<UserGameEnterResponse>(this.OnGameEnter);
+            MessageDistributer.Instance.Subscribe<UserGameLeaveResponse>(this.OnGameLeave);
         }
 
         public void Dispose()
@@ -36,6 +37,7 @@ namespace Services
             MessageDistributer.Instance.Unsubscribe<UserRegisterResponse>(this.OnUserRegister);
             MessageDistributer.Instance.Unsubscribe<UserCreateCharacterResponse>(this.OnCharacterCreate);
             MessageDistributer.Instance.Unsubscribe<UserGameEnterResponse>(this.OnGameEnter);
+            MessageDistributer.Instance.Unsubscribe<UserGameLeaveResponse>(this.OnGameLeave);
             NetClient.Instance.OnConnect -= OnGameServerConnect;
             NetClient.Instance.OnDisconnect -= OnGameServerDisconnect;
         }
@@ -219,6 +221,22 @@ namespace Services
         private void OnGameEnter(object sender, UserGameEnterResponse message)
         {
             Debug.LogFormat("OnGameEnter:Result:{0}:{1}", message.Result, message.Errormsg);
+        }
+
+        internal void SendGameLeave()
+        {
+            Debug.Log("UserGameLeaveRequest");
+
+            NetMessage message = new NetMessage();
+            message.Request = new NetMessageRequest();
+            message.Request.gameLeave = new UserGameLeaveRequest();
+            NetClient.Instance.SendMessage(message);
+        }
+
+        private void OnGameLeave(object sender, UserGameLeaveResponse message)
+        {
+            Debug.LogFormat("OnGameLeave:{0} [{1}]", message.Result, message.Errormsg);
+            MapService.Instance.currentMapId = 0;
         }
     }
 }

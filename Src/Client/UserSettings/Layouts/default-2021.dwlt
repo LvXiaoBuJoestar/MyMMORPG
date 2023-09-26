@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 337
+  controlID: 135
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 338
+  controlID: 31
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,8 +193,8 @@ MonoBehaviour:
     y: 506
     width: 906
     height: 481
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 1
+  m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -670,11 +670,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.38059193, y: -0.6104458, z: 0.41979045, w: 0.5534704}
     speed: 2
-    m_Value: {x: -0.38059196, y: 0.61044586, z: -0.41979045, w: -0.5534704}
+    m_Value: {x: 0.38058287, y: -0.61043125, z: 0.41978043, w: 0.5534572}
   m_Size:
-    m_Target: 52.147446
+    m_Target: 178.18738
     speed: 2
-    m_Value: 52.147446
+    m_Value: 178.18738
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -832,9 +832,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3c0b0000
+      m_SelectedIDs: 42560000
       m_LastClickedID: 0
-      m_ExpandedIDs: 2afbffff
+      m_ExpandedIDs: 74e6ffff9af7ffff2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -900,22 +900,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/UI
+    - Assets/Levels
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/UI
+  - Assets/Levels
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\ABABAB\ExtremeWorld\MyMMORPG\Src\Client
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2a560000
-    m_LastClickedID: 22058
-    m_ExpandedIDs: 00000000ae550000b0550000b2550000b4550000b6550000b8550000ba550000bc550000be55000000ca9a3b
+    m_SelectedIDs: b4550000
+    m_LastClickedID: 21940
+    m_ExpandedIDs: 00000000b0550000b2550000b4550000b6550000b8550000ba550000bc550000be550000c055000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -943,7 +943,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ae550000b0550000b2550000b4550000b6550000b8550000ba550000bc550000be55000000ca9a3b
+    m_ExpandedIDs: 00000000b0550000b2550000b4550000b6550000b8550000ba550000bc550000be550000c0550000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -970,7 +970,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
