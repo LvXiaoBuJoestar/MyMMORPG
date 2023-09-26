@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Entities;
-using Services;
 using SkillBridge.Message;
+using Managers;
+using Models;
 
 public class GameObjectManager : MonoBehaviour
 {
@@ -70,6 +71,7 @@ public class GameObjectManager : MonoBehaviour
             {
                 if (character.Info.Id == Models.User.Instance.CurrentCharacter.Id)
                 {
+                    User.Instance.currentCharacter = go;
                     MainPlayerCamera.Instance.player = go;
                     pc.enabled = true;
                     pc.character = character;
@@ -80,7 +82,7 @@ public class GameObjectManager : MonoBehaviour
                     pc.enabled = false;
                 }
             }
-            //UIWorldElementManager.Instance.AddCharacterNameBar(go.transform, character);
+            UIWorldElementManager.Instance.AddCharacterNameBar(go.transform, character);
         }
     }
 }

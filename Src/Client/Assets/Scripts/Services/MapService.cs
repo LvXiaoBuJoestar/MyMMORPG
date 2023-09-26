@@ -6,6 +6,7 @@ using UnityEngine;
 using SkillBridge.Message;
 using Models;
 using Common.Data;
+using Managers;
 
 namespace Services
 {
@@ -59,6 +60,7 @@ namespace Services
             if (DataManager.Instance.Maps.ContainsKey(mapId))
             {
                 MapDefine map = DataManager.Instance.Maps[mapId];
+                User.Instance.currentMapData = map;
                 SceneManager.Instance.LoadScene(map.Resource);
             }
             else
