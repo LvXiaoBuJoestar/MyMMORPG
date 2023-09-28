@@ -237,6 +237,7 @@ namespace Services
         {
             Debug.LogFormat("OnGameLeave:{0} [{1}]", message.Result, message.Errormsg);
             MapService.Instance.currentMapId = 0;
+            User.Instance.CurrentCharacter = null;
         }
     }
 }

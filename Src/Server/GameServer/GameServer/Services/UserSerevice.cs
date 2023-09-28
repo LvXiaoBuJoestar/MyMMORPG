@@ -55,13 +55,15 @@ namespace GameServer.Services
                 message.Response.userLogin.Result = Result.Success;
                 message.Response.userLogin.Errormsg = "None";
                 message.Response.userLogin.Userinfo = new NUserInfo();
-                message.Response.userLogin.Userinfo.Id = 1;
+                message.Response.userLogin.Userinfo.Id = (int)user.ID;
                 message.Response.userLogin.Userinfo.Player = new NPlayerInfo();
                 message.Response.userLogin.Userinfo.Player.Id = user.Player.ID;
                 foreach(var c in user.Player.Characters)
                 {
                     NCharacterInfo info = new NCharacterInfo();
                     info.Id = c.ID;
+                    info.Tid = c.ID;
+                    info.Type = CharacterType.Player;
                     info.Name = c.Name;
                     info.Class = (CharacterClass)c.Class;
                     message.Response.userLogin.Userinfo.Player.Characters.Add(info);
@@ -129,9 +131,10 @@ namespace GameServer.Services
             {
                 NCharacterInfo nCharacterInfo = new NCharacterInfo();
                 nCharacterInfo.Name = c.Name;
-                nCharacterInfo.Id = c.ID;
+                nCharacterInfo.Type = CharacterType.Player;
+                nCharacterInfo.Id = 0;
                 nCharacterInfo.Class = (CharacterClass)c.Class;
-                nCharacterInfo.Tid = c.TID;
+                nCharacterInfo.Tid = c.ID;
                 netMessage.Response.createChar.Characters.Add(nCharacterInfo);
             }
 
@@ -163,7 +166,7 @@ namespace GameServer.Services
             Log.InfoFormat("UserGameLeaveRequest: character:{0},{1}  map:{2}", character.Id, character.Info.Name, character.Info.mapId);
 
             CharacterManager.Instance.RemoveCharacter(character.Id);
-            MapManager.Instance[character.Info.mapId].CharacterLeave(character.Info);
+            MapManager.Instance[character.Info.mapId].CharacterLeave(character);
 
             NetMessage netMessage = new NetMessage();
             netMessage.Response = new NetMessageResponse();

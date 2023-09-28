@@ -27,6 +27,9 @@ public class UIMiniMap : MonoBehaviour
 
     private void Update()
     {
+        if (playerTransform == null)
+            playerTransform = MiniMapManager.Instance.PlayerTransform;
+
         if (cityBox == null || playerTransform == null) return;
 
         float relativeX = playerTransform.position.x - minX;
@@ -45,8 +48,6 @@ public class UIMiniMap : MonoBehaviour
 
         minimapImage.SetNativeSize();
         minimapImage.transform.localPosition = Vector3.zero;
-
-        playerTransform = User.Instance.currentCharacter.transform;
 
         realWidth = cityBox.bounds.size.x;
         realHeight = cityBox.bounds.size.z;

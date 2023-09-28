@@ -100,16 +100,16 @@ namespace Network
                 MessageHandler<Tm> handler = (MessageHandler<Tm>)messageHandlers[key];
                 if (handler != null)
                 {
-                    try
-                    {
+                    //try
+                    //{
                         handler(sender, msg);
-                    }
-                    catch (System.Exception ex)
-                    {
-                        Log.ErrorFormat("Message handler exception:{0}, {1}, {2}, {3}", ex.InnerException, ex.Message, ex.Source, ex.StackTrace);
-                        if (ThrowException)
-                            throw ex;
-                    }
+                    //}
+                    //catch (System.Exception ex)
+                    //{
+                    //    Log.ErrorFormat("Message handler exception:{0}, {1}, {2}, {3}", ex.InnerException, ex.Message, ex.Source, ex.StackTrace);
+                    //    if (ThrowException)
+                    //        throw ex;
+                    //}
                 }
                 else
                 {

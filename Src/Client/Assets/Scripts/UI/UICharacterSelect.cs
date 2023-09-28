@@ -67,7 +67,6 @@ public class UICharacterSelect : MonoBehaviour
         enterGameButton1.onClick.AddListener(() =>
         {
             UserService.Instance.SendGameEnter(selectedCharacterIndex);
-            User.Instance.CurrentCharacter = User.Instance.Info.Player.Characters[selectedCharacterIndex];
         });
 
         creatNewCharButton.onClick.AddListener(() =>
@@ -114,7 +113,6 @@ public class UICharacterSelect : MonoBehaviour
 
         selectedCharacterIndex = User.Instance.Info.Player.Characters.Count;
         UserService.Instance.SendGameEnter(selectedCharacterIndex);
-        User.Instance.CurrentCharacter = User.Instance.Info.Player.Characters[selectedCharacterIndex];
     }
 
     void OnCharacterCreate(Result result, string message)
