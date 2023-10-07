@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMainCity : MonoBehaviour
+public class UIMain : MonoSingleton<UIMain>
 {
     [SerializeField] Text avaterName;
     [SerializeField] Text avatarLevel;
 
-    void Start()
+    protected override void OnStart()
     {
         UpdateAvatar();
     }

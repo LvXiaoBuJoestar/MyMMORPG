@@ -22,7 +22,7 @@ public class UIMiniMap : MonoBehaviour
 
     private void Start()
     {
-        RefreshMapData();
+        MiniMapManager.Instance.miniMap = this;
     }
 
     private void Update()
@@ -41,13 +41,16 @@ public class UIMiniMap : MonoBehaviour
         arrowImage.transform.eulerAngles = new Vector3(0, 0, -playerTransform.eulerAngles.y);
     }
 
-    void RefreshMapData()
+    public void RefreshMapData()
     {
         mapText.text = User.Instance.currentMapData.Name;
-        minimapImage.overrideSprite = MiniMapManager.Instance.LoadCurrentMiniMapImage();
+        minimapImage.sprite = MiniMapManager.Instance.LoadCurrentMiniMapImage();
 
         minimapImage.SetNativeSize();
         minimapImage.transform.localPosition = Vector3.zero;
+
+        cityBox = MiniMapManager.Instance.MiniMapBondingBox;
+        playerTransform = null;
 
         realWidth = cityBox.bounds.size.x;
         realHeight = cityBox.bounds.size.z;

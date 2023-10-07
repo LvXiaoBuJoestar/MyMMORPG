@@ -10,7 +10,7 @@ public class PlayerInputController : MonoBehaviour
 {
 
     public Rigidbody rb;
-    SkillBridge.Message.CharacterState state;
+    CharacterState state;
 
     public Character character;
 
@@ -26,7 +26,7 @@ public class PlayerInputController : MonoBehaviour
 
     void Start()
     {
-        state = SkillBridge.Message.CharacterState.Idle;
+        state = CharacterState.Idle;
         if (this.character == null)
         {
             DataManager.Instance.Load();
@@ -56,9 +56,9 @@ public class PlayerInputController : MonoBehaviour
         float v = Input.GetAxis("Vertical");
         if (v > 0.01)
         {
-            if (state != SkillBridge.Message.CharacterState.Move)
+            if (state != CharacterState.Move)
             {
-                state = SkillBridge.Message.CharacterState.Move;
+                state = CharacterState.Move;
                 this.character.MoveForward();
                 this.SendEntityEvent(EntityEvent.MoveFwd);
             }
@@ -66,9 +66,9 @@ public class PlayerInputController : MonoBehaviour
         }
         else if (v < -0.01)
         {
-            if (state != SkillBridge.Message.CharacterState.Move)
+            if (state != CharacterState.Move)
             {
-                state = SkillBridge.Message.CharacterState.Move;
+                state = CharacterState.Move;
                 this.character.MoveBack();
                 this.SendEntityEvent(EntityEvent.MoveBack);
             }
@@ -76,9 +76,9 @@ public class PlayerInputController : MonoBehaviour
         }
         else
         {
-            if (state != SkillBridge.Message.CharacterState.Idle)
+            if (state != CharacterState.Idle)
             {
-                state = SkillBridge.Message.CharacterState.Idle;
+                state = CharacterState.Idle;
                 this.rb.velocity = Vector3.zero;
                 this.character.Stop();
                 this.SendEntityEvent(EntityEvent.Idle);

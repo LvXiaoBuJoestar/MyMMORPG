@@ -13,7 +13,6 @@ namespace GameServer.Services
 {
     class UserService : Singleton<UserService>
     {
-
         public UserService()
         {
             MessageDistributer<NetConnection<NetSession>>.Instance.Subscribe<UserLoginRequest>(this.OnLogin);
