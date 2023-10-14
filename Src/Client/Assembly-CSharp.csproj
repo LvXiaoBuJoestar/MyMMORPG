@@ -59,9 +59,11 @@
     <Compile Include="Assets\Scripts\Managers\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\Entities\Character.cs" />
     <Compile Include="Assets\Scripts\GameObject\Teleporter.cs" />
+    <Compile Include="Assets\Scripts\Managers\NpcManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIMessageBox.cs" />
     <Compile Include="Assets\Scripts\Network\NetClient.cs" />
     <Compile Include="Assets\Scripts\UI\UILogin.cs" />
+    <Compile Include="Assets\Scripts\GameObject\NpcController.cs" />
     <Compile Include="Assets\Scripts\UI\MessageBox.cs" />
     <Compile Include="Assets\Scripts\Managers\DataManager.cs" />
     <Compile Include="Assets\Scripts\GameObject\GameObjectManager.cs" />
@@ -69,10 +71,12 @@
     <Compile Include="Assets\Scripts\Models\User.cs" />
     <Compile Include="Assets\Scripts\Services\UserService.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterView.cs" />
+    <Compile Include="Assets\Scripts\UI\UIWindow.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameUtil.cs" />
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
     <Compile Include="Assets\Scripts\UI\UINameBar.cs" />
     <Compile Include="Assets\Scripts\Utilities\MonoSingleton.cs" />
+    <Compile Include="Assets\Scripts\GameObject\MapController.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MiniMapManager.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity.cs" />
@@ -83,8 +87,10 @@
     <Compile Include="Assets\Scripts\UI\UIRegister.cs" />
     <Compile Include="Assets\Scripts\Managers\EntityManager.cs" />
     <Compile Include="Assets\Scripts\UI\CheckFrame.cs" />
+    <Compile Include="Assets\Scripts\UI\UITest.cs" />
     <Compile Include="Assets\Scripts\GameObject\MainPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\UI\UIWorldElement.cs" />
+    <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\Assets\Resloader.cs" />
     <Compile Include="Assets\Scripts\GameObject\PlayerInputController.cs" />
     <Compile Include="Assets\Scripts\Log\UnityLogger.cs" />
@@ -92,7 +98,6 @@
     <Compile Include="Assets\Scripts\GameObject\EntityController.cs" />
     <Compile Include="Assets\Scripts\Services\MapService.cs" />
     <Compile Include="Assets\Scripts\UI\UICharacterInfo.cs" />
-    <Compile Include="Assets\Scripts\GameObject\MapController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\References\Protocol.dll" />
