@@ -8,6 +8,7 @@ using Network;
 using SkillBridge.Message;
 using GameServer.Entities;
 using GameServer.Managers;
+using GameServer.Models;
 
 namespace GameServer.Services
 {
@@ -152,6 +153,19 @@ namespace GameServer.Services
             netMessage.Response.gameEnter = new UserGameEnterResponse();
             netMessage.Response.gameEnter.Result = Result.Success;
             netMessage.Response.gameEnter.Errormsg = "None";
+
+            netMessage.Response.gameEnter.Character = character.Info;
+
+            //测试
+            int itemId = 2;
+            bool hasItem = character.ItemManager.HasItem(itemId);
+            Log.InfoFormat("HasItem:[{0}]{1}", itemId, hasItem);
+            if (hasItem)
+                character.ItemManager.RemoveItem(itemId, 1);
+            else
+                character.ItemManager.AddItem(itemId, 5);
+            Item item = character.ItemManager.GetItem(itemId);
+            Log.InfoFormat("Item:[{0}]{1}", itemId, item);
 
             byte[] data = PackageHandler.PackMessage(netMessage);
             sender.SendData(data, 0, data.Length);
