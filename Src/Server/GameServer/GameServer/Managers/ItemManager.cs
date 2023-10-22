@@ -78,7 +78,7 @@ namespace GameServer.Managers
             }
 
             Log.InfoFormat("{0} Add Item {1} {2}", Owner.Data.ID, itemId, count);
-            DBService.Instance.Save();
+            //DBService.Instance.Save();
         }
 
         public bool RemoveItem(int itemId, int count)
@@ -91,7 +91,7 @@ namespace GameServer.Managers
             item.Remove(count);
 
             Log.InfoFormat("{0} Remove Item {1} {2}", Owner.Data.ID, itemId, count);
-            DBService.Instance.Save();
+            //DBService.Instance.Save();
 
             return true;
         }

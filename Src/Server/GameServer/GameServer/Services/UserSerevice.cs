@@ -117,6 +117,12 @@ namespace GameServer.Services
                 MapPosZ = 820,
             };
 
+            TCharacterBag bag = new TCharacterBag();
+            bag.Items = new byte[0];
+            bag.Unlocked = 20;
+            bag.Owner = character;
+            character.Bag = DBService.Instance.Entities.CharacterBag.Add(bag);
+
             character = DBService.Instance.Entities.Characters.Add(character);
             sender.Session.User.Player.Characters.Add(character);
             DBService.Instance.Entities.SaveChanges();
@@ -156,14 +162,19 @@ namespace GameServer.Services
 
             netMessage.Response.gameEnter.Character = character.Info;
 
-            //测试
-            int itemId = 2;
+            //测试道具及背包逻辑
+            int itemId = 3;
             bool hasItem = character.ItemManager.HasItem(itemId);
             Log.InfoFormat("HasItem:[{0}]{1}", itemId, hasItem);
             if (hasItem)
                 character.ItemManager.RemoveItem(itemId, 1);
             else
-                character.ItemManager.AddItem(itemId, 5);
+            {
+                character.ItemManager.AddItem(1, 100);
+                character.ItemManager.AddItem(2, 200);
+                character.ItemManager.AddItem(3, 300);
+                character.ItemManager.AddItem(4, 60);
+            }
             Item item = character.ItemManager.GetItem(itemId);
             Log.InfoFormat("Item:[{0}]{1}", itemId, item);
 

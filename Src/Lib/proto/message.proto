@@ -74,6 +74,7 @@ message NCharacterInfo {
 	int32 mapId = 7;
 	NEntity entity = 8;
 	repeated NItemInfo Items = 11;
+	NBagInfo BagInfo = 12;
 }
 
 
@@ -88,6 +89,12 @@ message NVector3
 	int32 x = 1;
 	int32 y = 2;
 	int32 z = 3;
+}
+
+message NBagInfo
+{
+	int32 unlocked = 1;
+	bytes Items = 2;
 }
 
 ////////////////////////////////////////////////////////////////
@@ -240,4 +247,15 @@ message MapEntitySyncResponse
 message MapTeleportRequest
 {
 	int32 teleporterId = 1;
+}
+
+message BagSaveRequest
+{
+	NBagInfo BagInfo = 1;
+}
+
+message BagSaveResponse
+{
+	RESULT result = 1;
+	string errormsg = 2;
 }

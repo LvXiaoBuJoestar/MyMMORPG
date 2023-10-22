@@ -33,6 +33,10 @@ namespace GameServer.Entities
 
             this.ItemManager = new ItemManager(this);
             this.ItemManager.GetItemInfos(this.Info.Items);
+
+            this.Info.BagInfo = new NBagInfo();
+            this.Info.BagInfo.Unlocked = Data.Bag.Unlocked;
+            this.Info.BagInfo.Items = Data.Bag.Items;
         }
     }
 }
