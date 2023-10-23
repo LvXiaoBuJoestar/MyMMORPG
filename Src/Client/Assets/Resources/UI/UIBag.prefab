@@ -2455,7 +2455,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2123712982748323594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2187140030769383071}
+        m_TargetAssemblyTypeName: UIWindow, Assembly-CSharp
+        m_MethodName: OnCloseClike
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2123712982801807351
 GameObject:
   m_ObjectHideFlags: 0
@@ -6099,6 +6111,7 @@ GameObject:
   - component: {fileID: 2123712983754426387}
   - component: {fileID: 2123712983754426380}
   - component: {fileID: 2123712983754426381}
+  - component: {fileID: 2187140030769383071}
   m_Layer: 5
   m_Name: UIBag
   m_TagString: Untagged
@@ -6188,6 +6201,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2187140030769383071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123712983754426382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5baf86003e227e445b966f123e5653bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 2123712982579307642}
+  pages:
+  - {fileID: 2123712982466824347}
+  - {fileID: 2123712983298015151}
+  bagItem: {fileID: 8435309441663064001, guid: 556bd134fe928ba43a3c037f6a60696f, type: 3}
 --- !u!1 &2123712983782386426
 GameObject:
   m_ObjectHideFlags: 0

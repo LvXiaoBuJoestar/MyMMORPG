@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameServer.Services
 {
-    class BagService
+    class BagService : Singleton<BagService>
     {
         public BagService()
         {
