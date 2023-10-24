@@ -68,6 +68,9 @@ namespace SkillBridge.Message
         [global::ProtoBuf.ProtoMember(8, Name = @"entity")]
         public NEntity Entity { get; set; }
 
+        [global::ProtoBuf.ProtoMember(9, Name = @"gold")]
+        public long Gold { get; set; }
+
         [global::ProtoBuf.ProtoMember(11)]
         public global::System.Collections.Generic.List<NItemInfo> Items { get; } = new global::System.Collections.Generic.List<NItemInfo>();
 
@@ -209,6 +212,9 @@ namespace SkillBridge.Message
         [global::ProtoBuf.ProtoMember(9)]
         public MapTeleportRequest mapTeleport { get; set; }
 
+        [global::ProtoBuf.ProtoMember(10)]
+        public ItemBuyRequest itemBuy { get; set; }
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -241,6 +247,9 @@ namespace SkillBridge.Message
 
         [global::ProtoBuf.ProtoMember(8)]
         public MapEntitySyncResponse mapEntitySync { get; set; }
+
+        [global::ProtoBuf.ProtoMember(10)]
+        public ItemBuyResponse itemBuy { get; set; }
 
     }
 
@@ -493,6 +502,37 @@ namespace SkillBridge.Message
 
     [global::ProtoBuf.ProtoContract()]
     public partial class BagSaveResponse : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"result")]
+        public Result Result { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"errormsg")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Errormsg { get; set; } = "";
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ItemBuyRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public int shopId { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public int shopItemId { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ItemBuyResponse : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)

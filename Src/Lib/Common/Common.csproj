@@ -55,6 +55,8 @@
     <Compile Include="Data\CharacterDefine.cs" />
     <Compile Include="Data\ItemDefine.cs" />
     <Compile Include="Data\NpcDefine.cs" />
+    <Compile Include="Data\ShopDefine.cs" />
+    <Compile Include="Data\ShopItemDefine.cs" />
     <Compile Include="Data\SpawnRuleDefine.cs" />
     <Compile Include="Data\SpawnPointDefine.cs" />
     <Compile Include="Data\SpawnType.cs" />

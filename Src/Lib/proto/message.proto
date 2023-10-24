@@ -73,6 +73,8 @@ message NCharacterInfo {
 	int32 level = 6;
 	int32 mapId = 7;
 	NEntity entity = 8;
+	int64 gold = 9;
+
 	repeated NItemInfo Items = 11;
 	NBagInfo BagInfo = 12;
 }
@@ -142,6 +144,8 @@ message NetMessageRequest{
 
 	MapEntitySyncRequest mapEntitySync = 8;
 	MapTeleportRequest mapTeleport = 9;
+
+	ItemBuyRequest itemBuy = 10;
 }
 
 message NetMessageResponse{
@@ -155,7 +159,8 @@ message NetMessageResponse{
 	MapCharacterLeaveResponse mapCharacterLeave = 7;
 
 	MapEntitySyncResponse mapEntitySync = 8;
-	
+
+	ItemBuyResponse itemBuy = 10;
 }
 
 
@@ -209,7 +214,6 @@ message UserGameEnterResponse {
 message UserGameLeaveRequest
 {
 }
-
 message UserGameLeaveResponse {
 	RESULT result = 1;
 	string errormsg = 2;
@@ -220,7 +224,6 @@ message MapCharacterEnterRequest
 {
 	int32 mapId = 1;
 }
-
 message MapCharacterEnterResponse
 {
 	int32 mapId = 1;
@@ -237,8 +240,6 @@ message MapEntitySyncRequest
 {
     NEntitySync entitySync = 1;
 }
-
-
 message MapEntitySyncResponse
 {
     repeated NEntitySync entitySyncs = 2;
@@ -253,9 +254,17 @@ message BagSaveRequest
 {
 	NBagInfo BagInfo = 1;
 }
-
 message BagSaveResponse
 {
+	RESULT result = 1;
+	string errormsg = 2;
+}
+
+message ItemBuyRequest{
+	int32 shopId = 1;
+	int32 shopItemId = 2;
+}
+message ItemBuyResponse{
 	RESULT result = 1;
 	string errormsg = 2;
 }
