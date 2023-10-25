@@ -26,5 +26,10 @@ namespace Models
         public MapDefine currentMapData { get; set; }
         public SkillBridge.Message.NCharacterInfo CurrentCharacter { get; set; }
         public GameObject currentCharacter { get; set; }
+
+        public void AddGold(int gold)
+        {
+            this.CurrentCharacter.Gold += gold;
+        }
     }
 }

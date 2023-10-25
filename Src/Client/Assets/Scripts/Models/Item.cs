@@ -10,11 +10,17 @@ namespace Models
         public int Count;
         public ItemDefine itemDefine;
 
-        public Item(NItemInfo item)
+        public Item(NItemInfo item) : 
+            this(item.Id, item.Count)
         {
-            Id = item.Id;
-            Count = item.Count;
-            itemDefine = DataManager.Instance.Items[Id];
+
+        }
+
+        public Item(int id, int count)
+        {
+            this.Id = id;
+            this.Count = count;
+            itemDefine = DataManager.Instance.Items[id];
         }
 
         public override string ToString()

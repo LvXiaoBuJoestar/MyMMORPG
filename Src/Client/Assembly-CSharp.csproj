@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\Services\MapService.cs" />
     <Compile Include="Assets\Scripts\Models\Item.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UICharacterInfo.cs" />
+    <Compile Include="Assets\Scripts\Services\StatusService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\References\Protocol.dll" />
