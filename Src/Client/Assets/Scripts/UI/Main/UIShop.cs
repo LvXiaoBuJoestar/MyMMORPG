@@ -1,4 +1,5 @@
 using Common.Data;
+using Managers;
 using Models;
 using System;
 using System.Collections;
@@ -57,5 +58,6 @@ public class UIShop : UIWindow
             MessageBox.Show("请先选择要购买的道具", "购买提醒");
             return;
         }
+        ShopManager.Instance.BuyItem(shopDefine.ID, selectedShopItem.ShopItemId);
     }
 }

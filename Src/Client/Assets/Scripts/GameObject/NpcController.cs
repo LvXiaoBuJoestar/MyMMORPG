@@ -69,6 +69,7 @@ public class NpcController : MonoBehaviour
     {
         yield return StartCoroutine(nameof(FaceToPlayer));
         animator.SetTrigger("Talk");
+        NpcManager.Instance.Interactive(npcDefine);
     }
 
     void HighLight(bool height)

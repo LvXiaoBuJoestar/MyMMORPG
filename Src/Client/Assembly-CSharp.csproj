@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\UI\CommonUI\MessageBox.cs" />
     <Compile Include="Assets\Scripts\Managers\DataManager.cs" />
     <Compile Include="Assets\Scripts\GameObject\GameObjectManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\ShopManager.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIMiniMap.cs" />
     <Compile Include="Assets\Scripts\Models\User.cs" />
     <Compile Include="Assets\Scripts\Services\UserService.cs" />
@@ -76,11 +77,12 @@
     <Compile Include="Assets\Scripts\Utilities\GameUtil.cs" />
     <Compile Include="Assets\Scripts\UI\Main\TabView.cs" />
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
+    <Compile Include="Assets\Scripts\UI\Main\UIShopItem.cs" />
     <Compile Include="Assets\Scripts\UI\Main\TabButton.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UINameBar.cs" />
     <Compile Include="Assets\Scripts\Utilities\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\GameObject\MapController.cs" />
-    <Compile Include="Assets\Scripts\UI\LoadingUI\LoadingManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\LoadingManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MiniMapManager.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIShop.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIBag.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Assets\Scripts\UI\WorldUI\UIWorldElement.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\Assets\Resloader.cs" />
+    <Compile Include="Assets\Scripts\Services\ItemService.cs" />
     <Compile Include="Assets\Scripts\GameObject\PlayerInputController.cs" />
     <Compile Include="Assets\Scripts\Log\UnityLogger.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIMain.cs" />
@@ -106,7 +109,6 @@
     <Compile Include="Assets\Scripts\Services\MapService.cs" />
     <Compile Include="Assets\Scripts\Models\Item.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UICharacterInfo.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\UIShopItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\References\Protocol.dll" />

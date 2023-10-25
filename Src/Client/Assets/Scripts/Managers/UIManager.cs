@@ -17,8 +17,8 @@ public class UIManager : Singleton<UIManager>
 
     public UIManager()
     {
-        uIElements.Add(typeof(UIBag), new UIElement() { resources = "UI/UIBag", cache = true });
-        uIElements.Add(typeof(UIShop), new UIElement() { resources = "UI/UIShop", cache = true });
+        uIElements.Add(typeof(UIBag), new UIElement() { resources = "UI/UIBag", cache = false });
+        uIElements.Add(typeof(UIShop), new UIElement() { resources = "UI/UIShop", cache = false });
     }
 
     public T Show<T>()

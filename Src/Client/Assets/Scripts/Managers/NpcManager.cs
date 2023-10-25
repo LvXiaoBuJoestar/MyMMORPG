@@ -18,7 +18,7 @@ namespace Managers
 
         public void RegisterNpcEvent(NpcFunction npcFunction, NpcActionHandler npcActionHandler)
         {
-            if(actionHandlers.ContainsKey(npcFunction))
+            if(!actionHandlers.ContainsKey(npcFunction))
                 actionHandlers[npcFunction] = npcActionHandler;
             else
                 actionHandlers[npcFunction] += npcActionHandler;
@@ -42,7 +42,7 @@ namespace Managers
 
         bool DoFunctionInteractive(NpcDefine npcDefine)
         {
-            if (actionHandlers.ContainsKey(npcDefine.Function))
+            if (!actionHandlers.ContainsKey(npcDefine.Function))
                 return false;
             return actionHandlers[npcDefine.Function](npcDefine);
         }

@@ -8,6 +8,7 @@ using Common;
 using Common.Data;
 
 using Newtonsoft.Json;
+
 namespace GameServer.Managers
 {
     public class DataManager : Singleton<DataManager>
