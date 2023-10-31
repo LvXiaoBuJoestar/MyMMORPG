@@ -14,6 +14,8 @@ namespace Services
 
         Dictionary<StatusType, StatusNotifyHandler> m_StatusNotifyHandlers = new Dictionary<StatusType, StatusNotifyHandler>();
 
+        HashSet<StatusNotifyHandler> handlers = new HashSet<StatusNotifyHandler>();
+
         public void Init()
         {
 
@@ -21,10 +23,14 @@ namespace Services
 
         public void RegisterStatusNotify(StatusType function, StatusNotifyHandler action)
         {
+            if (handlers.Contains(action)) return;
+
             if (!m_StatusNotifyHandlers.ContainsKey(function))
                 m_StatusNotifyHandlers[function] = action;
             else
                 m_StatusNotifyHandlers[function] += action;
+
+            handlers.Add(action);
         }
 
         public StatusService()

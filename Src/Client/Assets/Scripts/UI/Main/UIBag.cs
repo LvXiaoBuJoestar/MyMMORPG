@@ -42,4 +42,20 @@ public class UIBag : UIWindow
         }
         yield return null;
     }
+
+    public void OnReset()
+    {
+        BagManager.Instance.Reset();
+        Clear();
+        StartCoroutine(nameof(InitBag));
+    }
+
+    void Clear()
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (slots[i].transform.childCount > 0)
+                Destroy(slots[i].transform.GetChild(0).gameObject);
+        }
+    }
 }

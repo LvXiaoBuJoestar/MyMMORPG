@@ -116,6 +116,7 @@ namespace GameServer.Services
                 MapPosY = 4000,
                 MapPosZ = 820,
                 Gold = 10000,
+                Equips = new byte[28],
             };
 
             TCharacterBag bag = new TCharacterBag();
@@ -125,6 +126,10 @@ namespace GameServer.Services
             character.Bag = DBService.Instance.Entities.CharacterBag.Add(bag);
 
             character = DBService.Instance.Entities.Characters.Add(character);
+
+            character.Items.Add(new TCharacterItem() { Owner = character, ItemID = 1, ItemCount = 20, });
+            character.Items.Add(new TCharacterItem() { Owner = character, ItemID = 2, ItemCount = 20, });
+
             sender.Session.User.Player.Characters.Add(character);
             DBService.Instance.Entities.SaveChanges();
 
@@ -162,22 +167,6 @@ namespace GameServer.Services
             netMessage.Response.gameEnter.Errormsg = "None";
 
             netMessage.Response.gameEnter.Character = character.Info;
-
-            //测试道具及背包逻辑
-            int itemId = 3;
-            bool hasItem = character.ItemManager.HasItem(itemId);
-            Log.InfoFormat("HasItem:[{0}]{1}", itemId, hasItem);
-            if (hasItem)
-                character.ItemManager.RemoveItem(itemId, 1);
-            else
-            {
-                character.ItemManager.AddItem(1, 100);
-                character.ItemManager.AddItem(2, 200);
-                character.ItemManager.AddItem(3, 300);
-                character.ItemManager.AddItem(4, 60);
-            }
-            Item item = character.ItemManager.GetItem(itemId);
-            Log.InfoFormat("Item:[{0}]{1}", itemId, item);
 
             byte[] data = PackageHandler.PackMessage(netMessage);
             sender.SendData(data, 0, data.Length);

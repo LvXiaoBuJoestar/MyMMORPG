@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Managers\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\Entities\Character.cs" />
+    <Compile Include="Assets\Scripts\Services\StatusService.cs" />
     <Compile Include="Assets\Scripts\GameObject\Teleporter.cs" />
     <Compile Include="Assets\Scripts\Managers\NpcManager.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\UIMessageBox.cs" />
@@ -68,10 +69,12 @@
     <Compile Include="Assets\Scripts\UI\CommonUI\MessageBox.cs" />
     <Compile Include="Assets\Scripts\Managers\DataManager.cs" />
     <Compile Include="Assets\Scripts\GameObject\GameObjectManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Main\UICharEquip.cs" />
     <Compile Include="Assets\Scripts\Managers\ShopManager.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIMiniMap.cs" />
     <Compile Include="Assets\Scripts\Models\User.cs" />
     <Compile Include="Assets\Scripts\Services\UserService.cs" />
+    <Compile Include="Assets\Scripts\Managers\EquipManager.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\CharacterView.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\UIWindow.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameUtil.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Assets\Scripts\UI\LoadingUI\UIRegister.cs" />
     <Compile Include="Assets\Scripts\Managers\EntityManager.cs" />
     <Compile Include="Assets\Scripts\Models\BagItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Main\UIEquipItem.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\CheckFrame.cs" />
     <Compile Include="Assets\Scripts\GameObject\MainPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UIWorldElement.cs" />
@@ -109,7 +113,6 @@
     <Compile Include="Assets\Scripts\Services\MapService.cs" />
     <Compile Include="Assets\Scripts\Models\Item.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UICharacterInfo.cs" />
-    <Compile Include="Assets\Scripts\Services\StatusService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\References\Protocol.dll" />

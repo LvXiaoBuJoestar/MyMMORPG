@@ -18,23 +18,68 @@ public class UIShop : UIWindow
     ShopDefine shopDefine;
     UIShopItem selectedShopItem;
 
+    [SerializeField] int perPageCount = 10;
+    [SerializeField] Text currentPageText;
+    int currentPage = 1;
+    int pageCount = 1;
+
     private void Start()
     {
+        StartCoroutine(nameof(InitShop));
+        SetPageCount();
+    }
+
+    public void SwitchLastPage()
+    {
+        if (currentPage <= 1) return;
+        currentPage--;
+        StartCoroutine(nameof(InitShop));
+    }
+    public void SwitchNextPage()
+    {
+        if (currentPage >= pageCount) return;
+        currentPage++;
         StartCoroutine(nameof(InitShop));
     }
 
     IEnumerator InitShop()
     {
+        if (itemRoot.childCount > 0)
+        {
+            for (int i = 0; i < itemRoot.childCount; i++)
+            {
+                Destroy(itemRoot.GetChild(i).gameObject);
+            }
+        }
+
+        int index = 0;
+        int page = 1;
         foreach(var kv in DataManager.Instance.ShopItems[shopDefine.ID])
         {
-            if (kv.Value.Status > 0)
+            index++;
+            if(index > perPageCount)
+            {
+                index = 1;
+                page++;
+            }
+
+            if (page == currentPage && kv.Value.Status > 0)
             {
                 GameObject go = Instantiate(shopItem, itemRoot);
                 UIShopItem uIShopItem = go.GetComponent<UIShopItem>();
                 uIShopItem.SetShopItem(kv.Key, kv.Value, this);
             }
         }
+        currentPageText.text = currentPage + "/" + pageCount;
         yield return null;
+    }
+
+    void SetPageCount()
+    {
+        pageCount = DataManager.Instance.ShopItems[shopDefine.ID].Count / perPageCount;
+        if (DataManager.Instance.ShopItems.Count % perPageCount > 0)
+            pageCount++;
+        currentPageText.text = currentPage + "/" + pageCount;
     }
 
     public void SetShop(ShopDefine shopDefine)

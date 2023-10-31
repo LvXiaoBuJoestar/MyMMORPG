@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2050369169905052102}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6929772488126776104}
+        m_TargetAssemblyTypeName: UIShop, Assembly-CSharp
+        m_MethodName: SwitchLastPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2050369169908832553
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +451,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2050369171794664093}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6929772488126776104}
+        m_TargetAssemblyTypeName: UIShop, Assembly-CSharp
+        m_MethodName: SwitchNextPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5751668930415367349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,3 +1494,5 @@ MonoBehaviour:
   shopItem: {fileID: 4270757439060457698, guid: 9be728f734aa23b4f8f75c25540e429a,
     type: 3}
   itemRoot: {fileID: 5751668930680470478}
+  perPageCount: 10
+  currentPageText: {fileID: 2050369171345017126}

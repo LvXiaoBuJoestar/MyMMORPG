@@ -229,6 +229,7 @@ namespace Services
                 {
                     ItemManager.Instance.Init(message.Character.Items);
                     BagManager.Instance.Init(message.Character.BagInfo);
+                    EquipManager.Instance.Init(message.Character.Equips);
                 }
             }
         }
