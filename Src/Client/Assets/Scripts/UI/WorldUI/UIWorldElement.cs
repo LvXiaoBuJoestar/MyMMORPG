@@ -9,10 +9,9 @@ public class UIWorldElement : MonoBehaviour
 
     private void Update()
     {
-        transform.forward = Camera.main.transform.forward;
+        if (Camera.main != null)
+            transform.forward = Camera.main.transform.forward;
         if(owner != null)
-        {
             transform.position = owner.position + heightOffset * Vector3.up;
-        }
     }
 }

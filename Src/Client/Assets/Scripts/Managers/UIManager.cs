@@ -19,7 +19,9 @@ public class UIManager : Singleton<UIManager>
     {
         uIElements.Add(typeof(UIBag), new UIElement() { resources = "UI/UIBag", cache = false });
         uIElements.Add(typeof(UIShop), new UIElement() { resources = "UI/UIShop", cache = false });
-        uIElements.Add(typeof(UICharEquip), new UIElement() { resources = "UI/UICharEquip", cache = false });
+        uIElements.Add(typeof(UICharEquip), new UIElement() { resources = "UI/UICharEquip", cache = true });
+        uIElements.Add(typeof(UIQuestSystem), new UIElement() { resources = "UI/UIQuestSystem", cache = false });
+        uIElements.Add(typeof(UIQuestDialog), new UIElement() { resources = "UI/UIQuestDialog", cache = false });
     }
 
     public T Show<T>()

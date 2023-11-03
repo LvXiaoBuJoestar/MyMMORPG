@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Models\Quest.cs" />
     <Compile Include="Assets\Scripts\Managers\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\Entities\Character.cs" />
     <Compile Include="Assets\Scripts\Services\StatusService.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\UI\CommonUI\UIWindow.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameUtil.cs" />
     <Compile Include="Assets\Scripts\UI\Main\TabView.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestItem.cs" />
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIShopItem.cs" />
     <Compile Include="Assets\Scripts\UI\Main\TabButton.cs" />
@@ -88,11 +90,13 @@
     <Compile Include="Assets\Scripts\Managers\LoadingManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MiniMapManager.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIShop.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestSystem.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIBag.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UICharacterSelect.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneManager.cs" />
     <Compile Include="Assets\Scripts\GameObject\GameObjectTool.cs" />
+    <Compile Include="Assets\Scripts\Managers\QuestManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Managers\BagManager.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UIWorldElementManager.cs" />
@@ -103,9 +107,11 @@
     <Compile Include="Assets\Scripts\UI\LoadingUI\CheckFrame.cs" />
     <Compile Include="Assets\Scripts\GameObject\MainPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UIWorldElement.cs" />
+    <Compile Include="Assets\Scripts\UI\CommonUI\ListView.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\Assets\Resloader.cs" />
     <Compile Include="Assets\Scripts\Services\ItemService.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestInfo.cs" />
     <Compile Include="Assets\Scripts\GameObject\PlayerInputController.cs" />
     <Compile Include="Assets\Scripts\Log\UnityLogger.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIMain.cs" />
@@ -113,6 +119,8 @@
     <Compile Include="Assets\Scripts\Services\MapService.cs" />
     <Compile Include="Assets\Scripts\Models\Item.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UICharacterInfo.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestDialog.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\References\Protocol.dll" />
