@@ -15,6 +15,8 @@ public class NpcController : MonoBehaviour
 
     NpcDefine npcDefine;
 
+    NpcQuestStatus questStatus;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -24,6 +26,27 @@ public class NpcController : MonoBehaviour
         npcDefine = NpcManager.Instance.GetNpcDefine(npcId);
 
         StartCoroutine(nameof(Actions));
+        RefreshNpcStatus();
+        QuestManager.Instance.onQuestStatusChanged += OnQuestStatusChanged;
+    }
+
+    void OnQuestStatusChanged(Quest quest)
+    {
+        RefreshNpcStatus();
+    }
+
+    private void RefreshNpcStatus()
+    {
+        questStatus = QuestManager.Instance.GetQuestStatusByNpc(npcId);
+        UIWorldElementManager.Instance.AddNpcQuestStatus(transform, questStatus);
+    }
+
+    private void OnDestroy()
+    {
+        QuestManager.Instance.onQuestStatusChanged -= OnQuestStatusChanged;
+        if (UIWorldElementManager.Instance != null)
+            UIWorldElementManager.Instance.RemoveNpcQuestStatus(transform);
+
     }
 
     private void OnMouseEnter()

@@ -15,6 +15,7 @@ namespace GameServer.Entities
        
         public TCharacter Data;
         public ItemManager ItemManager;
+        public QuestManager QuestManager;
         public StatusManager StatusManager;
 
         public Character(CharacterType type,TCharacter cha):
@@ -25,7 +26,7 @@ namespace GameServer.Entities
             this.Info.Type = type;
             this.Info.Id = cha.ID;
             this.Info.Name = cha.Name;
-            this.Info.Level = 1;//cha.Level;
+            this.Info.Level = 10;//cha.Level;
             this.Info.Tid = cha.TID;
             this.Info.Class = (CharacterClass)cha.Class;
             this.Info.mapId = cha.MapID;
@@ -35,6 +36,8 @@ namespace GameServer.Entities
 
             this.ItemManager = new ItemManager(this);
             this.ItemManager.GetItemInfos(this.Info.Items);
+            this.QuestManager = new QuestManager(this);
+            this.QuestManager.GetQuestInfos(this.Info.Quests);
 
             this.Info.BagInfo = new NBagInfo();
             this.Info.BagInfo.Unlocked = Data.Bag.Unlocked;

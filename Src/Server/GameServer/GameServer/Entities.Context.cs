@@ -30,5 +30,6 @@ namespace GameServer
         public virtual DbSet<TCharacter> Characters { get; set; }
         public virtual DbSet<TCharacterItem> CharacterItems { get; set; }
         public virtual DbSet<TCharacterBag> CharacterBag { get; set; }
+        public virtual DbSet<TCharacterQuest> CharacterQuests { get; set; }
     }
 }

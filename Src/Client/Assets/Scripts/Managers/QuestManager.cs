@@ -1,10 +1,12 @@
 using Models;
+using Services;
 using SkillBridge.Message;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Managers
 {
@@ -22,7 +24,9 @@ namespace Managers
         public Dictionary<int, Quest> allQuests = new Dictionary<int, Quest>();
 
         public Dictionary<int, Dictionary<NpcQuestStatus, List<Quest>>> npcQuests = new Dictionary<int, Dictionary<NpcQuestStatus, List<Quest>>>();
-        
+
+        public UnityAction<Quest> onQuestStatusChanged;
+
         public void Init(List<NQuestInfo> quests)
         {
             questInfos = quests;
@@ -31,40 +35,48 @@ namespace Managers
             InitQuests();
         }
 
-        private void InitQuests()
+        private void CheckAvailableQuests()
         {
-            foreach(var info in questInfos)
-            {
-                Quest quest = new Quest(info);
-                AddNpcQuest(quest.Define.AcceptNPC, quest);
-                AddNpcQuest(quest.Define.SubmitNPC, quest);
-                allQuests[quest.Info.QuestId] = quest;
-            }
-
-            foreach(var kv in DataManager.Instance.Quests)
+            foreach (var kv in DataManager.Instance.Quests)
             {
                 if (kv.Value.LimitClass != CharacterClass.None && kv.Value.LimitClass != User.Instance.CurrentCharacter.Class)
                     continue;
-                if(kv.Value.LimitLevel > User.Instance.CurrentCharacter.Level)
+                if (kv.Value.LimitLevel > User.Instance.CurrentCharacter.Level)
                     continue;
                 if (allQuests.ContainsKey(kv.Key))
                     continue;
 
-                if(kv.Value.PreQuest > 0)
+                if (kv.Value.PreQuest > 0)
                 {
                     Quest preQuest;
                     if (allQuests.TryGetValue(kv.Value.PreQuest, out preQuest))
                     {
-                        if (preQuest.Info == null || preQuest.Info.Status != QuestStatus.Finished) continue;
+                        if (preQuest.Info == null || preQuest.Info.Status != QuestStatus.Finished)
+                            continue;
                     }
                     else
                         continue;
                 }
 
                 Quest quest = new Quest(kv.Value);
-                AddNpcQuest(quest.Define.AcceptNPC, quest);
-                AddNpcQuest(quest.Define.SubmitNPC, quest);
                 allQuests[quest.Define.ID] = quest;
+            }
+        }
+
+        private void InitQuests()
+        {
+            foreach(var info in questInfos)
+            {
+                Quest quest = new Quest(info);
+                allQuests[quest.Info.QuestId] = quest;
+            }
+
+            CheckAvailableQuests();
+
+            foreach(var kv in allQuests)
+            {
+                AddNpcQuest(kv.Value.Define.AcceptNPC, kv.Value);
+                AddNpcQuest(kv.Value.Define.SubmitNPC, kv.Value);
             }
         }
 
@@ -165,14 +177,54 @@ namespace Managers
             UIQuestDialog dialog = uIWindowCom as UIQuestDialog;
 
             if (windowResult == UIWindow.WindowResult.yes)
-                MessageBox.Show(dialog.quest.Define.DialogAccept);
+            {
+                if(dialog.quest.Info == null)
+                    QuestService.Instance.SendQuestAccept(dialog.quest);
+                else if(dialog.quest.Info.Status == QuestStatus.Complated)
+                    QuestService.Instance.SendQuestSubmit(dialog.quest);
+            }
             else if (windowResult == UIWindow.WindowResult.no)
                 MessageBox.Show(dialog.quest.Define.DialogDeny);
         }
 
-        public void OnQuestAccept()
+        Quest RefreshQuestStatus(NQuestInfo quest)
         {
+            npcQuests.Clear();
+            Quest result;
+            if (allQuests.ContainsKey(quest.QuestId))
+            {
+                allQuests[quest.QuestId].Info = quest;
+                result = allQuests[quest.QuestId];
+            }
+            else
+            {
+                result = new Quest(quest);
+                allQuests[quest.QuestId] = result;
+            }
 
+            CheckAvailableQuests();
+
+            foreach(var kv in allQuests)
+            {
+                AddNpcQuest(kv.Value.Define.AcceptNPC, kv.Value);
+                AddNpcQuest(kv.Value.Define.SubmitNPC, kv.Value);
+            }
+
+            if(onQuestStatusChanged != null)
+                onQuestStatusChanged(result);
+            return result;
+        }
+
+        public void OnQuestAccept(NQuestInfo questInfo)
+        {
+            Quest quest = RefreshQuestStatus(questInfo);
+            MessageBox.Show(quest.Define.DialogAccept);
+        }
+
+        internal void OnQuestSubmited(NQuestInfo questInfo)
+        {
+            Quest quest = RefreshQuestStatus(questInfo);
+            MessageBox.Show(quest.Define.DialogFinish);
         }
     }
 }
