@@ -4798,7 +4798,6 @@ GameObject:
   m_Component:
   - component: {fileID: 417341077625218545}
   - component: {fileID: 417341077625218548}
-  - component: {fileID: 417341077625218546}
   - component: {fileID: 417341077625218549}
   m_Layer: 0
   m_Name: TransportPoint
@@ -4830,19 +4829,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417341077625218544}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &417341077625218546
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417341077625218544}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &417341077625218549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4899,8 +4885,8 @@ GameObject:
   m_Component:
   - component: {fileID: 417341078441867083}
   - component: {fileID: 417341078441867086}
-  - component: {fileID: 417341078441867084}
   - component: {fileID: 417341078441867087}
+  - component: {fileID: 859635823094357003}
   m_Layer: 0
   m_Name: Teleporter
   m_TagString: Untagged
@@ -4932,19 +4918,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417341078441867082}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &417341078441867084
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417341078441867082}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &417341078441867087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4958,6 +4931,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+--- !u!65 &859635823094357003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417341078441867082}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &630118673645164684
 GameObject:
   m_ObjectHideFlags: 0

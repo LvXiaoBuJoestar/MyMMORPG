@@ -5,13 +5,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+[ExecuteInEditMode]
 public class Teleporter : MonoBehaviour
 {
+    Mesh mesh = null;
     public int id;
+
+    private void Start()
+    {
+        mesh = GetComponent<MeshFilter>().sharedMesh;
+    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
+        if (mesh != null)
+            Gizmos.DrawWireMesh(mesh, 0, transform.position, transform.rotation, transform.localScale);
         UnityEditor.Handles.color = Color.red;
         UnityEditor.Handles.ArrowHandleCap(0, transform.position, transform.rotation, 1f, EventType.Repaint);
     }

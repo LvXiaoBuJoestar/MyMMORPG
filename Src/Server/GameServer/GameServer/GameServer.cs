@@ -60,9 +60,11 @@ namespace GameServer
         {
             while (running)
             {
+                var mapManager = MapManager.Instance;
                 Time.Tick();
                 Thread.Sleep(100);
                 //Console.WriteLine("{0} {1} {2} {3} {4}", Time.deltaTime, Time.frameCount, Time.ticks, Time.time, Time.realtimeSinceStartup);
+                mapManager.Update();
             }
         }
     }
