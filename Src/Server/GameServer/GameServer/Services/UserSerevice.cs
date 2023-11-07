@@ -59,7 +59,7 @@ namespace GameServer.Services
                 {
                     NCharacterInfo info = new NCharacterInfo();
                     info.Id = c.ID;
-                    info.Tid = c.ID;
+                    info.ConfigId = c.ID;
                     info.Type = CharacterType.Player;
                     info.Name = c.Name;
                     info.Class = (CharacterClass)c.Class;
@@ -103,6 +103,7 @@ namespace GameServer.Services
                 Name = message.Name,
                 Class = (int)message.Class,
                 TID = (int)message.Class,
+                Level = 1,
                 MapID = 1,
                 MapPosX = 5000,
                 MapPosY = 4000,
@@ -134,9 +135,9 @@ namespace GameServer.Services
                 NCharacterInfo nCharacterInfo = new NCharacterInfo();
                 nCharacterInfo.Name = c.Name;
                 nCharacterInfo.Type = CharacterType.Player;
-                nCharacterInfo.Id = 0;
+                nCharacterInfo.Id = c.ID;
                 nCharacterInfo.Class = (CharacterClass)c.Class;
-                nCharacterInfo.Tid = c.ID;
+                nCharacterInfo.ConfigId = c.TID;
                 sender.Session.Response.createChar.Characters.Add(nCharacterInfo);
             }
 
