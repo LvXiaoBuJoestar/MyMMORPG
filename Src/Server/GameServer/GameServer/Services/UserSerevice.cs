@@ -149,6 +149,7 @@ namespace GameServer.Services
             TCharacter dbChar = sender.Session.User.Player.Characters.ElementAt(message.characterIdx);
             Log.InfoFormat("UserGameEnterRequest: characterID:{0}:{1} map:{2}", dbChar.ID, dbChar.Name, dbChar.MapID);
             Character character = CharacterManager.Instance.AddCharacter(dbChar);
+            SessionManager.Instance.AddSession(character.Id, sender);
 
             sender.Session.Response.gameEnter = new UserGameEnterResponse();
             sender.Session.Response.gameEnter.Result = Result.Success;
@@ -157,6 +158,7 @@ namespace GameServer.Services
             sender.SendResponse();
             
             sender.Session.Character = character;
+            sender.Session.PostResponser = character;
             MapManager.Instance[dbChar.MapID].CharacterEnter(sender, character);
         }
 
@@ -164,7 +166,7 @@ namespace GameServer.Services
         {
             Character character = sender.Session.Character;
             Log.InfoFormat("UserGameLeaveRequest: character:{0},{1}  map:{2}", character.Id, character.Info.Name, character.Info.mapId);
-
+            SessionManager.Instance.RemoveSession(character.Id);
             CharacterLeave(character);
 
             sender.Session.Response.gameLeave = new UserGameLeaveResponse();
@@ -177,6 +179,7 @@ namespace GameServer.Services
         {
             CharacterManager.Instance.RemoveCharacter(character.Id);
             MapManager.Instance[character.Info.mapId].CharacterLeave(character);
+            character.Clear();
         }
     }
 }

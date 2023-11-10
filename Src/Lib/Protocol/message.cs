@@ -903,7 +903,7 @@ namespace SkillBridge.Message
         public string Errormsg { get; set; } = "";
 
         [global::ProtoBuf.ProtoMember(3, Name = @"friends")]
-        public NFriendInfo Friends { get; set; }
+        public global::System.Collections.Generic.List<NFriendInfo> Friends { get; } = new global::System.Collections.Generic.List<NFriendInfo>();
 
     }
 

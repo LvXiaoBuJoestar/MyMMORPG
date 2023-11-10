@@ -1,6 +1,7 @@
 ﻿using Common.Data;
 using GameServer.Core;
 using GameServer.Managers;
+using Network;
 using SkillBridge.Message;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace GameServer.Entities
 {
-    class Character : CharacterBase
+    class Character : CharacterBase, IPostResponser
     {
-       
         public TCharacter Data;
         public ItemManager ItemManager;
         public QuestManager QuestManager;
         public StatusManager StatusManager;
+        public FriendManager FriendManager;
 
         public Character(CharacterType type,TCharacter cha):
             base(new Core.Vector3Int(cha.MapPosX, cha.MapPosY, cha.MapPosZ),new Core.Vector3Int(100,0,0))
@@ -40,6 +41,8 @@ namespace GameServer.Entities
             this.ItemManager.GetItemInfos(this.Info.Items);
             this.QuestManager = new QuestManager(this);
             this.QuestManager.GetQuestInfos(this.Info.Quests);
+            this.FriendManager = new FriendManager(this);
+            this.FriendManager.GetFriendInfos(this.Info.Friends);
 
             this.Info.BagInfo = new NBagInfo();
             this.Info.BagInfo.Unlocked = Data.Bag.Unlocked;
@@ -58,6 +61,18 @@ namespace GameServer.Entities
                 StatusManager.AddGoldChange((int)(value - this.Data.Gold));
                 this.Data.Gold = value;
             }
+        }
+
+        public void PostProcess(NetMessageResponse message)
+        {
+            this.FriendManager.PoseProcess(message);
+            if(this.StatusManager.HasStatus)
+                this.StatusManager.PostProcess(message);
+        }
+
+        public void Clear()
+        {
+            this.FriendManager.UpdateFriendInfo(this.Info, 0);
         }
     }
 }

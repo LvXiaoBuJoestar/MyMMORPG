@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Services\StatusService.cs" />
     <Compile Include="Assets\Scripts\GameObject\Teleporter.cs" />
     <Compile Include="Assets\Scripts\Managers\NpcManager.cs" />
+    <Compile Include="Assets\Scripts\Services\FriendService.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\UIMessageBox.cs" />
     <Compile Include="Assets\Scripts\Network\NetClient.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UILogin.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\Models\User.cs" />
     <Compile Include="Assets\Scripts\Services\UserService.cs" />
     <Compile Include="Assets\Scripts\Managers\EquipManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Main\UIFriends.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\CharacterView.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\UIWindow.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameUtil.cs" />
@@ -83,10 +85,12 @@
     <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestItem.cs" />
     <Compile Include="Assets\Scripts\GameObject\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Services\QuestService.cs" />
+    <Compile Include="Assets\Scripts\UI\CommonUI\UIInputBox.cs" />
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIShopItem.cs" />
     <Compile Include="Assets\Scripts\UI\Main\TabButton.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UINameBar.cs" />
+    <Compile Include="Assets\Scripts\Managers\FriendManager.cs" />
     <Compile Include="Assets\Scripts\Utilities\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\GameObject\MapController.cs" />
     <Compile Include="Assets\Scripts\Managers\LoadingManager.cs" />
@@ -121,7 +125,9 @@
     <Compile Include="Assets\Scripts\UI\Main\UIMain.cs" />
     <Compile Include="Assets\Scripts\GameObject\EntityController.cs" />
     <Compile Include="Assets\Scripts\Services\MapService.cs" />
+    <Compile Include="Assets\Scripts\UI\CommonUI\InputBox.cs" />
     <Compile Include="Assets\Scripts\Models\Item.cs" />
+    <Compile Include="Assets\Scripts\UI\Main\UIFriendItem.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UICharacterInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -435,7 +435,7 @@ message FriendListRequest{
 message FriendListResponse{
 	RESULT result = 1;
 	string errormsg = 2;
-	NFriendInfo friends = 3;
+	repeated NFriendInfo friends = 3;
 }
 
 message FriendRemoveRequest{
