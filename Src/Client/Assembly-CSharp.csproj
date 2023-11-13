@@ -89,9 +89,11 @@
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIShopItem.cs" />
     <Compile Include="Assets\Scripts\UI\Main\TabButton.cs" />
+    <Compile Include="Assets\Scripts\Managers\TeamManager.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UINameBar.cs" />
     <Compile Include="Assets\Scripts\Managers\FriendManager.cs" />
     <Compile Include="Assets\Scripts\Utilities\MonoSingleton.cs" />
+    <Compile Include="Assets\Scripts\Services\TeamService.cs" />
     <Compile Include="Assets\Scripts\GameObject\MapController.cs" />
     <Compile Include="Assets\Scripts\Managers\LoadingManager.cs" />
     <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestStatus.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Assets\Scripts\Entities\Entity.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UICharacterSelect.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\SpriteManager.cs" />
     <Compile Include="Assets\Scripts\GameObject\GameObjectTool.cs" />
     <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestDialog.cs" />
     <Compile Include="Assets\Scripts\Managers\QuestManager.cs" />
@@ -113,6 +116,7 @@
     <Compile Include="Assets\Scripts\Models\BagItem.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIEquipItem.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\CheckFrame.cs" />
+    <Compile Include="Assets\Scripts\UI\Main\UITeamItem.cs" />
     <Compile Include="Assets\Scripts\GameObject\MainPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UIWorldElement.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\ListView.cs" />
@@ -124,6 +128,7 @@
     <Compile Include="Assets\Scripts\Log\UnityLogger.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIMain.cs" />
     <Compile Include="Assets\Scripts\GameObject\EntityController.cs" />
+    <Compile Include="Assets\Scripts\UI\Main\UITeam.cs" />
     <Compile Include="Assets\Scripts\Services\MapService.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\InputBox.cs" />
     <Compile Include="Assets\Scripts\Models\Item.cs" />

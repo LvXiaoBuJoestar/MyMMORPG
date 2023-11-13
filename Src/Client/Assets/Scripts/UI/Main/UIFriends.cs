@@ -26,6 +26,24 @@ public class UIFriends : UIWindow
         selectedItem = item as UIFriendItem;
     }
 
+    public void OnClickFriendTeamInvite()
+    {
+        if (selectedItem == null)
+        {
+            MessageBox.Show("请先选择您要邀请的好友");
+            return;
+        }
+        if (selectedItem.info.Status == 0)
+        {
+            MessageBox.Show("您邀请的好友当前不在线");
+            return;
+        }
+        MessageBox.Show(string.Format("确定要邀请【{0}】加入队伍吗", selectedItem.info.friendInfo.Name), "组队邀请", MessageBoxType.Confirm, "确定", "取消").OnYes = () =>
+        {
+            TeamService.Instance.SendTeamInviteRequest(selectedItem.info.friendInfo.Id, selectedItem.info.friendInfo.Name);
+        };
+    }
+
     public void OnClickFriendAdd()
     {
         InputBox.Show("请输入要添加的好友名称或ID：", "添加好友").OnSubmit += OnFriendAddSubmit;

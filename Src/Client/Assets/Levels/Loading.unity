@@ -1633,6 +1633,55 @@ MonoBehaviour:
   passwordInputField: {fileID: 203082159}
   passwordConfirmField: {fileID: 364833400}
   enterGameButton: {fileID: 76039468}
+--- !u!1 &673726971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 673726973}
+  - component: {fileID: 673726972}
+  m_Layer: 0
+  m_Name: SpriteManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &673726972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673726971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78828e35fc42634db335ce7cfae9567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  global: 1
+  classIcons:
+  - {fileID: 21300000, guid: 6fdc7a99a2d92b042bf902217b3b511f, type: 3}
+  - {fileID: 21300000, guid: 14c85a33c3eabf3489152adbb39f7977, type: 3}
+  - {fileID: 21300000, guid: 8dfd52495e47e764f8a058cf07704bf9, type: 3}
+--- !u!4 &673726973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673726971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705430179
 GameObject:
   m_ObjectHideFlags: 0

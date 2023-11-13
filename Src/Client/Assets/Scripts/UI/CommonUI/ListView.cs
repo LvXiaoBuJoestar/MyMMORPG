@@ -26,7 +26,7 @@ public class ListView : MonoBehaviour
         {
         }
 
-        public ListView owner;
+        [HideInInspector] public ListView owner;
 
         public void OnPointerClick(PointerEventData eventData)
         {
