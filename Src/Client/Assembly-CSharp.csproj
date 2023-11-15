@@ -58,10 +58,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Models\Quest.cs" />
     <Compile Include="Assets\Scripts\Managers\CharacterManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\GuildManager.cs" />
     <Compile Include="Assets\Scripts\Entities\Character.cs" />
     <Compile Include="Assets\Scripts\Services\StatusService.cs" />
+    <Compile Include="Assets\Scripts\Services\GuildService.cs" />
     <Compile Include="Assets\Scripts\GameObject\Teleporter.cs" />
     <Compile Include="Assets\Scripts\Managers\NpcManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuildMemberItem.cs" />
     <Compile Include="Assets\Scripts\Services\FriendService.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\UIMessageBox.cs" />
     <Compile Include="Assets\Scripts\Network\NetClient.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="Assets\Scripts\UI\CommonUI\UIInputBox.cs" />
     <Compile Include="Assets\Scripts\Utilities\Singleton.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIShopItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuildPopCreate.cs" />
     <Compile Include="Assets\Scripts\UI\Main\TabButton.cs" />
     <Compile Include="Assets\Scripts\Managers\TeamManager.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UINameBar.cs" />
@@ -106,8 +110,11 @@
     <Compile Include="Assets\Scripts\Scene\SceneManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SpriteManager.cs" />
     <Compile Include="Assets\Scripts\GameObject\GameObjectTool.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuildInfo.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuildList.cs" />
     <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestDialog.cs" />
     <Compile Include="Assets\Scripts\Managers\QuestManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuildItem.cs" />
     <Compile Include="Assets\Scripts\Managers\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Managers\BagManager.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UIWorldElementManager.cs" />
@@ -116,8 +123,10 @@
     <Compile Include="Assets\Scripts\Models\BagItem.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIEquipItem.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\CheckFrame.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuild.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UITeamItem.cs" />
     <Compile Include="Assets\Scripts\GameObject\MainPlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuildPopNoGuild.cs" />
     <Compile Include="Assets\Scripts\UI\WorldUI\UIWorldElement.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\ListView.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
