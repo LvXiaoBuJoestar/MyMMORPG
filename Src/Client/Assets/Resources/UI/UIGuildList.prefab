@@ -601,7 +601,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 344194917521816395}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3551929313583095155}
+        m_TargetAssemblyTypeName: UIGuildList, Assembly-CSharp
+        m_MethodName: OnClickJoin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &344194917557554994
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344194917760710403}
+  - component: {fileID: 9202626915954730928}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -803,6 +816,23 @@ RectTransform:
   m_AnchoredPosition: {x: -411.05313, y: -7.4123}
   m_SizeDelta: {x: 477.8937, y: 672.4567}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9202626915954730928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344194917760710428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad0dad717c074449859a339ab54959a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: {fileID: 344194918096470920}
+  id: {fileID: 344194917478330787}
+  leader: {fileID: 344194917727653778}
+  notice: {fileID: 344194918008795426}
+  member: {fileID: 344194918749585836}
 --- !u!1 &344194918008795452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1737,7 @@ MonoBehaviour:
     type: 3}
   listView: {fileID: 7898744437878232683}
   itemRoot: {fileID: 7898744437878232674}
+  uiInfo: {fileID: 9202626915954730928}
 --- !u!1 &7898744437878232673
 GameObject:
   m_ObjectHideFlags: 0

@@ -1037,6 +1037,7 @@ MonoBehaviour:
     type: 3}
   listView: {fileID: 2236442574355358189}
   itemRoot: {fileID: 2236442574355358180}
+  uiInfo: {fileID: 8412433159440096159}
 --- !u!1 &8525975929817408376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,6 +1893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8525975930497056901}
+  - component: {fileID: 8412433159440096159}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -1924,6 +1926,23 @@ RectTransform:
   m_AnchoredPosition: {x: -411.05313, y: -7.4123}
   m_SizeDelta: {x: 477.8937, y: 672.4567}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8412433159440096159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525975930497056922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad0dad717c074449859a339ab54959a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: {fileID: 8525975930835006478}
+  id: {fileID: 8525975930812466725}
+  leader: {fileID: 8525975930533263380}
+  notice: {fileID: 8525975931342898852}
+  member: {fileID: 8525975931553166890}
 --- !u!1 &8525975930533264362
 GameObject:
   m_ObjectHideFlags: 0

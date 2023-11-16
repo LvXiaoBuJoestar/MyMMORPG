@@ -35,6 +35,6 @@ public class UIGuildItem : ListView.ListViewItem
         if (this.name != null) this.name.text = this.Info.GuildName;
         if (this.leader != null) this.leader.text = this.Info.leaderName;
         if (this.id != null) this.id.text = this.Info.Id.ToString();
-        //if (this.member != null) this.member.text = ;
+        if (this.member != null) this.member.text = string.Format("{0} / {1}", info.memberCount, 40);
     }
 }

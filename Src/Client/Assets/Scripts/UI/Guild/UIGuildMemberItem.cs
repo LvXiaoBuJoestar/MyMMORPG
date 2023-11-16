@@ -1,3 +1,4 @@
+using Common.Utils;
 using SkillBridge.Message;
 using System.Collections;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ public class UIGuildMemberItem : ListView.ListViewItem
         if(this.@class != null) this.@class.text = this.Info.Info.Class.ToString();
         if(this.level != null) this.level.text = this.Info.Info.Level.ToString();
         if(this.job != null) this.job.text = this.Info.Title.ToString();
-        //if(this.joinTime != null) joinTime.text = TimeUnit.GetTime();
+        if (this.joinTime != null) joinTime.text = TimeUtil.GetTime(this.Info.joinTime).ToShortTimeString();
+        if(this.status!=null) status.text = this.Info.Status == 1 ? "ÔÚÏß" : TimeUtil.GetTime(this.Info.lastTime).ToShortTimeString();
     }
 }

@@ -10,7 +10,7 @@ public class UIGuildList : UIWindow
     [SerializeField] GameObject itemPrefab;
     [SerializeField] ListView listView;
     [SerializeField] Transform itemRoot;
-    UIGuildInfo uiInfo;
+    [SerializeField] UIGuildInfo uiInfo;
     UIGuildItem selectedItem;
 
     private void Start()
