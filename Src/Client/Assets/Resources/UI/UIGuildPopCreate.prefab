@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6529760735178911452}
         m_TargetAssemblyTypeName: UIWindow, Assembly-CSharp
         m_MethodName: OnCloseClike
         m_Mode: 1

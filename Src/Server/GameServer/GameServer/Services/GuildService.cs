@@ -20,6 +20,7 @@ namespace GameServer.Services
             MessageDistributer<NetConnection<NetSession>>.Instance.Subscribe<GuildCreateRequest>(this.OnGuildCreate);
             MessageDistributer<NetConnection<NetSession>>.Instance.Subscribe<GuildListRequest>(this.OnGuildList);
             MessageDistributer<NetConnection<NetSession>>.Instance.Subscribe<GuildLeaveRequest>(this.OnGuildLeave);
+            MessageDistributer<NetConnection<NetSession>>.Instance.Subscribe<GuildAdminRequest>(this.OnGuildAdmin);
         }
 
         public void Init()
@@ -81,13 +82,13 @@ namespace GameServer.Services
                     leader.Session.Response.guildJoinReq = message;
                     leader.SendResponse();
                 }
-                else
-                {
-                    sender.Session.Response.guildJoinRes = new GuildJoinResponse();
-                    sender.Session.Response.guildJoinRes.Result = Result.Failed;
-                    sender.Session.Response.guildJoinRes.Errormsg = "请勿重复申请";
-                    sender.SendResponse();
-                }
+            }
+            else
+            {
+                sender.Session.Response.guildJoinRes = new GuildJoinResponse();
+                sender.Session.Response.guildJoinRes.Result = Result.Failed;
+                sender.Session.Response.guildJoinRes.Errormsg = "请勿重复申请";
+                sender.SendResponse();
             }
         }
 
@@ -106,9 +107,9 @@ namespace GameServer.Services
                 requester.Session.Character.Guild = guild;
 
                 requester.Session.Response.guildJoinRes = message;
-                sender.Session.Response.guildJoinRes.Result = Result.Success;
-                sender.Session.Response.guildJoinRes.Errormsg = "加入公会成功";
-                sender.SendResponse();
+                requester.Session.Response.guildJoinRes.Result = Result.Success;
+                requester.Session.Response.guildJoinRes.Errormsg = "加入公会成功";
+                requester.SendResponse();
             }
         }
 
@@ -132,6 +133,35 @@ namespace GameServer.Services
             character.Guild.Leave(character);
             sender.Session.Response.guildLeave.Result = Result.Success;
             DBService.Instance.Save();
+            sender.SendResponse();
+        }
+
+        private void OnGuildAdmin(NetConnection<NetSession> sender, GuildAdminRequest message)
+        {
+            Character character = sender.Session.Character;
+            Log.InfoFormat("OnGuildAdmin Character:[{0}]{1}", character.Id, character.Info.Name);
+            sender.Session.Response.guildAdmin = new GuildAdminResponse();
+
+            if(message.Target == character.Id)
+            {
+                sender.Session.Response.guildAdmin.Result = Result.Failed;
+                sender.Session.Response.guildAdmin.Errormsg = "不能对自己执行该操作哦";
+                sender.SendResponse();
+                return;
+            }
+
+            character.Guild.ExecuteAdmin(message.Command, message.Target, character.Id);
+
+            var target = SessionManager.Instance.GetSession(message.Target);
+            if(target != null)
+            {
+                target.Session.Response.guildAdmin = new GuildAdminResponse();
+                target.Session.Response.guildAdmin.Result = Result.Success;
+                target.Session.Response.guildAdmin.Command = message;
+                target.SendResponse();
+            }
+            sender.Session.Response.guildAdmin.Result = Result.Success;
+            sender.Session.Response.guildAdmin.Command = message;
             sender.SendResponse();
         }
     }

@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Networking.Types;
 
 namespace Services
 {
@@ -25,6 +26,7 @@ namespace Services
             MessageDistributer.Instance.Subscribe<GuildListResponse>(OnGuildList);
             MessageDistributer.Instance.Subscribe<GuildResponse>(OnGuild);
             MessageDistributer.Instance.Subscribe<GuildLeaveResponse>(OnGuildLeave);
+            MessageDistributer.Instance.Subscribe<GuildAdminResponse>(OnGuildAdmin);
         }
 
         public void Dispose()
@@ -35,6 +37,7 @@ namespace Services
             MessageDistributer.Instance.Unsubscribe<GuildListResponse>(OnGuildList);
             MessageDistributer.Instance.Unsubscribe<GuildResponse>(OnGuild);
             MessageDistributer.Instance.Unsubscribe<GuildLeaveResponse>(OnGuildLeave);
+            MessageDistributer.Instance.Unsubscribe<GuildAdminResponse>(OnGuildAdmin);
         }
 
         public void SendGuildCreate(string guildName, string notice)
@@ -59,7 +62,7 @@ namespace Services
                 MessageBox.Show(string.Format("{0} 公会创建成功", message.guildInfo.GuildName), "公会");
             }
             else
-                MessageBox.Show(string.Format("{0} 公会创建失败", message.guildInfo.GuildName), "公会");
+                MessageBox.Show(message.Errormsg, "公会");
         }
 
         public void SendGuildJoinRequest(int guildId)
@@ -100,9 +103,9 @@ namespace Services
         private void OnGuildJoinResponse(object sender, GuildJoinResponse message)
         {
             if (message.Result == Result.Success)
-                MessageBox.Show("加入公会成功", "公会");
+                MessageBox.Show("加入公会成功", "加入公会");
             else
-                MessageBox.Show("加入公会失败", "公会");
+                MessageBox.Show(message.Errormsg, "加入公会");
         }
 
         public void SendGuildListRequest()
@@ -142,10 +145,42 @@ namespace Services
             if(message.Result == Result.Success)
             {
                 GuildManager.Instance.Init(null);
-                MessageBox.Show("退出公会成功", "公会");
+                MessageBox.Show("退出公会成功", "公会").OnYes = () =>
+                {
+                    UIManager.Instance.Close(typeof(UIGuild));
+                };
             }
             else
                 MessageBox.Show("退出公会失败", "公会", MessageBoxType.Error);
+        }
+
+        public void SendGuildJoinApply(bool accept, NGuildApplyInfo apply)
+        {
+            Debug.Log("SendGuildJoinApply");
+            NetMessage netMessage = new NetMessage();
+            netMessage.Request = new NetMessageRequest();
+            netMessage.Request.guildJoinRes = new GuildJoinResponse();
+            netMessage.Request.guildJoinRes.Result = Result.Success;
+            netMessage.Request.guildJoinRes.Apply = apply;
+            netMessage.Request.guildJoinRes.Apply.Result = accept ? ApplyResult.Accept : ApplyResult.Reject;
+            NetClient.Instance.SendMessage(netMessage);
+        }
+
+        internal void SendAdminCommand(GuildAdminCommand command, int characterId)
+        {
+            Debug.Log("SendAdminCommand");
+            NetMessage netMessage = new NetMessage();
+            netMessage.Request = new NetMessageRequest();
+            netMessage.Request.guildAdmin = new GuildAdminRequest();
+            netMessage.Request.guildAdmin.Command = command;
+            netMessage.Request.guildAdmin.Target = characterId;
+            NetClient.Instance.SendMessage(netMessage);
+        }
+
+        private void OnGuildAdmin(object sender, GuildAdminResponse message)
+        {
+            Debug.LogFormat("OnGuildAdmin: {0}:{1}", message.Command, message.Result);
+            MessageBox.Show(string.Format("执行操作：{0}\n结果：{1}：{2}", message.Command, message.Result, message.Errormsg));
         }
     }
 }

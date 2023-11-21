@@ -110,16 +110,14 @@ public class UICharacterSelect : MonoBehaviour
         }
 
         UserService.Instance.SendCharacterCreate(nameInputField.text, this.selectedCharacterClass);
-
-        selectedCharacterIndex = User.Instance.Info.Player.Characters.Count;
-        UserService.Instance.SendGameEnter(selectedCharacterIndex);
     }
 
     void OnCharacterCreate(Result result, string message)
     {
         if (result == Result.Success)
         {
-
+            selectedCharacterIndex = User.Instance.Info.Player.Characters.Count;
+            UserService.Instance.SendGameEnter(selectedCharacterIndex);
         }
         else
         {

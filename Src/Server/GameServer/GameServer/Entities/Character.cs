@@ -95,11 +95,11 @@ namespace GameServer.Entities
                     this.Info.Guild = this.Guild.GuildInfo(this);
                     if (message.mapCharacterEnter != null)
                         this.GuildUpdateTS = this.Guild.timestamp;
-                    if(GuildUpdateTS < this.Guild.timestamp && message.mapCharacterEnter == null)
-                    {
-                        this.GuildUpdateTS = this.Guild.timestamp;
-                        this.Guild.PostProcess(this, message);
-                    }
+                }
+                if (GuildUpdateTS < this.Guild.timestamp && message.mapCharacterEnter == null)
+                {
+                    this.GuildUpdateTS = this.Guild.timestamp;
+                    this.Guild.PostProcess(this, message);
                 }
             }
 

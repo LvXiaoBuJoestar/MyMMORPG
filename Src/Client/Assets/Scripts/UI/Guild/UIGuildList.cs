@@ -16,7 +16,7 @@ public class UIGuildList : UIWindow
     private void Start()
     {
         listView.onItemSelected += OnGuildItemSelected;
-        uiInfo = null;
+        uiInfo.Info = null;
 
         GuildService.Instance.OnGuildListResult += UpdateGuildList;
         GuildService.Instance.SendGuildListRequest();

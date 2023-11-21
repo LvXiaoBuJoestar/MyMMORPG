@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Models\Quest.cs" />
     <Compile Include="Assets\Scripts\Managers\CharacterManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuildApplyItem.cs" />
     <Compile Include="Assets\Scripts\Managers\GuildManager.cs" />
     <Compile Include="Assets\Scripts\Entities\Character.cs" />
     <Compile Include="Assets\Scripts\Services\StatusService.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Assets\Scripts\UI\LoadingUI\UIRegister.cs" />
     <Compile Include="Assets\Scripts\Managers\EntityManager.cs" />
     <Compile Include="Assets\Scripts\Models\BagItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Guild\UIGuildApplyList.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIEquipItem.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\CheckFrame.cs" />
     <Compile Include="Assets\Scripts\UI\Guild\UIGuild.cs" />

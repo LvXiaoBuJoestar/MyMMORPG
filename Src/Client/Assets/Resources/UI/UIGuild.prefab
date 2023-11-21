@@ -1038,6 +1038,13 @@ MonoBehaviour:
   listView: {fileID: 2236442574355358189}
   itemRoot: {fileID: 2236442574355358180}
   uiInfo: {fileID: 8412433159440096159}
+  AdminButtons:
+  - {fileID: 8525975930826863638}
+  - {fileID: 8525975931271174137}
+  LeaderButtons:
+  - {fileID: 8525975930052665720}
+  - {fileID: 8525975931785265728}
+  - {fileID: 8525975930133944044}
 --- !u!1 &8525975929817408376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1326,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8525975930052665701}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4890476536848394997}
+        m_TargetAssemblyTypeName: UIGuild, Assembly-CSharp
+        m_MethodName: OnClickTransfer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8525975930099846365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1540,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8525975930133944041}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4890476536848394997}
+        m_TargetAssemblyTypeName: UIGuild, Assembly-CSharp
+        m_MethodName: OnClickDepose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8525975930182984954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,7 +1914,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8525975930318884045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4890476536848394997}
+        m_TargetAssemblyTypeName: UIGuild, Assembly-CSharp
+        m_MethodName: OnClickLeave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8525975930497056922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,7 +2349,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8525975930826863635}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4890476536848394997}
+        m_TargetAssemblyTypeName: UIGuild, Assembly-CSharp
+        m_MethodName: OnClickKickOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8525975930835006476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,7 +2801,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8525975931271174138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4890476536848394997}
+        m_TargetAssemblyTypeName: UIGuild, Assembly-CSharp
+        m_MethodName: OnClickAppliesList
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8525975931342898874
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,7 +3484,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8525975931785265741}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4890476536848394997}
+        m_TargetAssemblyTypeName: UIGuild, Assembly-CSharp
+        m_MethodName: OnClickPromote
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8525975931842659027
 GameObject:
   m_ObjectHideFlags: 0

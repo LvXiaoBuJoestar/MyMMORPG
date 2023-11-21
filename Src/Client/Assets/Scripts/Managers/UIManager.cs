@@ -27,6 +27,7 @@ public class UIManager : Singleton<UIManager>
         uIElements.Add(typeof(UIGuildList), new UIElement() { resources = "UI/UIGuildList", cache = true });
         uIElements.Add(typeof(UIGuildPopCreate), new UIElement() { resources = "UI/UIGuildPopCreate", cache = true });
         uIElements.Add(typeof(UIGuildPopNoGuild), new UIElement() { resources = "UI/UIGuildPopNoGuild", cache = true });
+        uIElements.Add(typeof(UIGuildApplyList), new UIElement() { resources = "UI/UIGuildApplyList", cache = true });
     }
 
     public T Show<T>()
@@ -54,14 +55,17 @@ public class UIManager : Singleton<UIManager>
         if(uIElements.ContainsKey(type))
         {
             UIElement uIElement = uIElements[type];
-            if (uIElement.cache)
+            if (uIElement.instance != null)
             {
-                uIElement.instance.SetActive(false);
-            }
-            else
-            {
-                GameObject.Destroy(uIElement.instance);
-                uIElement.instance = null;
+                if (uIElement.cache)
+                {
+                    uIElement.instance.SetActive(false);
+                }
+                else
+                {
+                    GameObject.Destroy(uIElement.instance);
+                    uIElement.instance = null;
+                }
             }
         }
     }
