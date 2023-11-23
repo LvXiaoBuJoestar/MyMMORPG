@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TabView : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TabView : MonoBehaviour
     [SerializeField] GameObject[] pages;
 
     private int lastIndex = -1;
+
+    public UnityAction<int> OnTabSelect;
 
     IEnumerator Start()
     {
@@ -27,15 +30,18 @@ public class TabView : MonoBehaviour
         if (index != lastIndex)
         {
             tabs[index].Select(true);
-            pages[index].SetActive(true);
+            if (pages.Length > 0)
+                pages[index].SetActive(true);
 
             if (lastIndex > -1)
             {
                 tabs[lastIndex].Select(false);
-                pages[lastIndex].SetActive(false);
+                if (pages.Length > 0)
+                    pages[lastIndex].SetActive(false);
             }
 
             lastIndex = index;
         }
+        if (OnTabSelect != null) OnTabSelect(index);
     }
 }

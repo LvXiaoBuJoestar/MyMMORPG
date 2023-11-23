@@ -21,6 +21,8 @@ namespace Services
         NetMessage pendingMessage = null;
         bool connected = false;
 
+        bool isQuitGame = false;
+
         public UserService()
         {
             NetClient.Instance.OnConnect += OnGameServerConnect;
@@ -211,6 +213,8 @@ namespace Services
         {
             Debug.LogFormat("UserGameEnterRequest: CharacterIndex:{0}", characterIndex);
 
+            ChatManager.Instance.Init();
+
             NetMessage message = new NetMessage();
             message.Request = new NetMessageRequest();
             message.Request.gameEnter = new UserGameEnterRequest();
@@ -238,8 +242,9 @@ namespace Services
             }
         }
 
-        internal void SendGameLeave()
+        internal void SendGameLeave(bool isQuitGame = false)
         {
+            this.isQuitGame = isQuitGame;
             Debug.Log("UserGameLeaveRequest");
 
             NetMessage message = new NetMessage();
@@ -253,6 +258,9 @@ namespace Services
             Debug.LogFormat("OnGameLeave:{0} [{1}]", message.Result, message.Errormsg);
             MapService.Instance.currentMapId = 0;
             User.Instance.CurrentCharacter = null;
+
+            if (this.isQuitGame)
+                Application.Quit();
         }
     }
 }

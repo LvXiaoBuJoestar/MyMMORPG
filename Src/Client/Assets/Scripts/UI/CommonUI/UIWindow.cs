@@ -10,6 +10,8 @@ public abstract class UIWindow : MonoBehaviour
 
     public virtual Type Type { get { return this.GetType(); } }
 
+    public GameObject Root;
+
     public enum WindowResult
     {
         none = 0,

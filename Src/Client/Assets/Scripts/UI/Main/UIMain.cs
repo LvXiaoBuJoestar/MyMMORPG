@@ -23,10 +23,9 @@ public class UIMain : MonoSingleton<UIMain>
         avatarLevel.text = User.Instance.CurrentCharacter.Level.ToString();
     }
 
-    public void BackToCharacterSelect()
+    public void OnClickSetting()
     {
-        SceneManager.Instance.LoadScene("CharacterSelect");
-        Services.UserService.Instance.SendGameLeave();
+        UIManager.Instance.Show<UISetting>();
     }
 
     public void OnClickBag()
