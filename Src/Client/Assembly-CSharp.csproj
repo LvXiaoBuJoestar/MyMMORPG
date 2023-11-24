@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Managers\NpcManager.cs" />
     <Compile Include="Assets\Scripts\UI\Guild\UIGuildMemberItem.cs" />
     <Compile Include="Assets\ThirdParty\Candlelight\Library\Property Attributes\FlushChildrenAttribute.cs" />
+    <Compile Include="Assets\Scripts\Services\ChatService.cs" />
     <Compile Include="Assets\Scripts\Services\FriendService.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\UIMessageBox.cs" />
     <Compile Include="Assets\Scripts\Network\NetClient.cs" />

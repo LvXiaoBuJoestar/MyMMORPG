@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Common
+{
+    public class GameDefine
+    {
+        public const int BagMaxItemPerPage = 20;
+        public const int GuildMaxMemberCount = 40;
+        public const int MaxChatRecoredNums = 20;
+        public const int MaxChatRecoredTime = 600;
+    }
+}
