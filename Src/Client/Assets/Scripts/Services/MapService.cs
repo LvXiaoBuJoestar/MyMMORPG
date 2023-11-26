@@ -76,7 +76,7 @@ namespace Services
                 Debug.LogErrorFormat("EnterMap:Map {0} not exited", mapId);
         }
 
-        internal void SendMapEntitySync(EntityEvent entityEvent, NEntity entityData)
+        internal void SendMapEntitySync(EntityEvent entityEvent, NEntity entityData, int param)
         {
             Debug.LogFormat("MapEntityUpdateRequest: Id:{0}, Pos:{1}, Dir:{2}, Speed:{3}", entityData.Id, entityData.Position.String(), entityData.Direction.String(), entityData.Speed);
             NetMessage netMessage = new NetMessage();
@@ -87,6 +87,7 @@ namespace Services
                 Id = entityData.Id,
                 Event = entityEvent,
                 Entity = entityData,
+                Param = param
             };
             NetClient.Instance.SendMessage(netMessage);
         }

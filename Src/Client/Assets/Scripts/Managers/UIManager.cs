@@ -30,6 +30,7 @@ public class UIManager : Singleton<UIManager>
         uIElements.Add(typeof(UIGuildApplyList), new UIElement() { resources = "UI/UIGuildApplyList", cache = true });
         uIElements.Add(typeof(UISetting), new UIElement() { resources = "UI/UISetting", cache = true });
         uIElements.Add(typeof(UIPopChatMenu), new UIElement() { resources = "UI/UIPopChatMenu", cache = true });
+        uIElements.Add(typeof(UIRide), new UIElement() { resources = "UI/UIRide", cache = true });
     }
 
     public T Show<T>()

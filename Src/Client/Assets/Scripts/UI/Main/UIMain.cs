@@ -52,4 +52,8 @@ public class UIMain : MonoSingleton<UIMain>
     {
         TeamWindow.ShowTeam(show);
     }
+    public void OnClickRide()
+    {
+        UIManager.Instance.Show<UIRide>();
+    }
 }

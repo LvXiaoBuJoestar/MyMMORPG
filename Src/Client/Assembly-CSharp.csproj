@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\UI\Main\UIMiniMap.cs" />
     <Compile Include="Assets\Scripts\Models\User.cs" />
     <Compile Include="Assets\Scripts\Services\UserService.cs" />
+    <Compile Include="Assets\Scripts\UI\Ride\UIRide.cs" />
     <Compile Include="Assets\ThirdParty\Candlelight\Library\Visuals\TextureX.cs" />
     <Compile Include="Assets\Scripts\Managers\EquipManager.cs" />
     <Compile Include="Assets\ThirdParty\Candlelight\Library\Property Attributes\TextureThumbnailAttribute.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Assets\Scripts\UI\CommonUI\UIWindow.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameUtil.cs" />
     <Compile Include="Assets\ThirdParty\Candlelight\Library\Property Attributes\PropertyBackingFieldAttribute.cs" />
+    <Compile Include="Assets\Scripts\GameObject\RideController.cs" />
     <Compile Include="Assets\Scripts\UI\CommonUI\TabView.cs" />
     <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestItem.cs" />
     <Compile Include="Assets\Scripts\GameObject\SpawnPoint.cs" />
@@ -127,6 +129,7 @@
     <Compile Include="Assets\Scripts\UI\Main\UIShop.cs" />
     <Compile Include="Assets\Scripts\UI\QuestSystem\UIQuestSystem.cs" />
     <Compile Include="Assets\ThirdParty\Candlelight\Library\Utilities\IdentifiableBackingFieldCompatibleObjectWrapper.cs" />
+    <Compile Include="Assets\Scripts\UI\Ride\UIRideItem.cs" />
     <Compile Include="Assets\Scripts\UI\Main\UIBag.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingUI\UICharacterSelect.cs" />
