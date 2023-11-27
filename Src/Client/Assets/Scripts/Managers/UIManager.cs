@@ -31,10 +31,12 @@ public class UIManager : Singleton<UIManager>
         uIElements.Add(typeof(UISetting), new UIElement() { resources = "UI/UISetting", cache = true });
         uIElements.Add(typeof(UIPopChatMenu), new UIElement() { resources = "UI/UIPopChatMenu", cache = true });
         uIElements.Add(typeof(UIRide), new UIElement() { resources = "UI/UIRide", cache = true });
+        uIElements.Add(typeof(UISystemConfig), new UIElement() { resources = "UI/UISystemConfig", cache = true });
     }
 
     public T Show<T>()
     {
+        SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Win_Open);
         Type type = typeof(T);
         if (uIElements.ContainsKey(type))
         {

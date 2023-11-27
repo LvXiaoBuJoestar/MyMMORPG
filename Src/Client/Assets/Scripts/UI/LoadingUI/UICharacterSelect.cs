@@ -44,6 +44,7 @@ public class UICharacterSelect : MonoBehaviour
 
         backButton.GetComponent<Button>().onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
             SetTwoPanelActive(false);
             backButton.SetActive(false);
         });
@@ -67,10 +68,12 @@ public class UICharacterSelect : MonoBehaviour
         enterGameButton1.onClick.AddListener(() =>
         {
             UserService.Instance.SendGameEnter(selectedCharacterIndex);
+            SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
         });
 
         creatNewCharButton.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
             SetTwoPanelActive(true);
             backButton.SetActive(true);
         });
@@ -95,6 +98,7 @@ public class UICharacterSelect : MonoBehaviour
             switchButtons[i].gameObject.transform.localScale = Vector3.one;
         }
 
+        SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
         CharacterView.Instance.RefreshCharacterView(index);
 
         switchButtons[index].GetComponent<Image>().sprite = selectedButtonSprites[index];
@@ -109,6 +113,7 @@ public class UICharacterSelect : MonoBehaviour
             return;
         }
 
+        SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
         UserService.Instance.SendCharacterCreate(nameInputField.text, this.selectedCharacterClass);
     }
 

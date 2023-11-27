@@ -31,10 +31,16 @@ public class UIMessageBox : MonoBehaviour {
         this.buttonNo.onClick.AddListener(OnClickNo);
 
         this.buttonNo.gameObject.SetActive(type == MessageBoxType.Confirm);
+
+        if (type == MessageBoxType.Error)
+            SoundManager.Instance.PlaySfx(SoundDefine.SFX_Message_Error);
+        else
+            SoundManager.Instance.PlaySfx(SoundDefine.SFX_Message_Info);
     }
 
     void OnClickYes()
     {
+        SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
         Destroy(this.gameObject);
         if (this.OnYes != null)
             this.OnYes();
@@ -42,6 +48,7 @@ public class UIMessageBox : MonoBehaviour {
 
     void OnClickNo()
     {
+        SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
         Destroy(this.gameObject);
         if (this.OnNo != null)
             this.OnNo();

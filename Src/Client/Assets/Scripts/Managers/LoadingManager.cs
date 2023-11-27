@@ -41,6 +41,8 @@ public class LoadingManager : MonoBehaviour
         TeamService.Instance.Init();
         ChatService.Instance.Init();
 
+        SoundManager.Instance.PlayMusic(SoundDefine.Music_Login);
+
         for (float i = 50; i < 100;)
         {
             i += Random.Range(0.1f, 0.5f);

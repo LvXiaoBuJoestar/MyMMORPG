@@ -42,6 +42,7 @@ public class UIRegister : MonoBehaviour
             return;
         }
 
+        SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
         UserService.Instance.SendRegister(accountInputField.text, passwordConfirmField.text);
     }
 

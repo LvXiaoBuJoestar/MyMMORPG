@@ -31,6 +31,7 @@ public class UILogin : MonoBehaviour
             return;
         }
 
+        SoundManager.Instance.PlaySfx(SoundDefine.SFX_UI_Click);
         UserService.Instance.SendLogin(accountInputField.text, passwordInputField.text);
     }
 
@@ -39,6 +40,7 @@ public class UILogin : MonoBehaviour
         if (result == Result.Success)
         {
             SceneManager.Instance.LoadScene("CharacterSelect");
+            SoundManager.Instance.PlayMusic(SoundDefine.Music_Select);
         }
         else
         {

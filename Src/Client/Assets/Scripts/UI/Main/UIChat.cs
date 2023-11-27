@@ -22,8 +22,7 @@ public class UIChat : MonoBehaviour
     {
         this.channelTab.OnTabSelect += OnDisplayChannelSelected;
         ChatManager.Instance.OnChat += RefreshUI;
-        channelSelect.onValueChanged.AddListener(OnSendChannelChanged);
-        
+        channelSelect.onValueChanged.AddListener(OnSendChannelChanged);      
     }
 
     private void OnDestroy()
