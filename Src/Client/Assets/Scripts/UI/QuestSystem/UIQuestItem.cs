@@ -29,6 +29,6 @@ public class UIQuestItem : ListView.ListViewItem
     public void SetQuestInfo(Quest quest)
     {
         this.quest = quest;
-        title.text = quest.Define.Name;
+        title.text = string.Format("[{0}] {1}", quest.Define.Type, quest.Define.Name);
     }
 }

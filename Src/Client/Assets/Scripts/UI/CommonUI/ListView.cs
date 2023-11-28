@@ -34,7 +34,7 @@ public class ListView : MonoBehaviour
             {
                 this.Selected = true;
             }
-            if (owner != null && owner.SelectedItem != this)
+            if (owner != null)
             {
                 owner.SelectedItem = this;
             }

@@ -10,6 +10,7 @@ namespace Managers
         public delegate bool NpcActionHandler(NpcDefine npcDefine);
 
         Dictionary<NpcFunction, NpcActionHandler> actionHandlers = new Dictionary<NpcFunction, NpcActionHandler>();
+        Dictionary<int, Vector3> npcPositions = new Dictionary<int, Vector3>();
 
         public NpcDefine GetNpcDefine(int npcId)
         {
@@ -46,6 +47,15 @@ namespace Managers
             if (!actionHandlers.ContainsKey(npcDefine.Function))
                 return false;
             return actionHandlers[npcDefine.Function](npcDefine);
+        }
+
+        internal void UpdateNpcPosition(int npc, Vector3 position)
+        {
+            this.npcPositions[npc] = position;
+        }
+        internal Vector3 GetNpcPosition(int npc)
+        {
+            return this.npcPositions[npc];
         }
     }
 }

@@ -24,6 +24,7 @@ public class NpcController : MonoBehaviour
         originalColor = skinnedMeshRenderer.material.color;
 
         npcDefine = NpcManager.Instance.GetNpcDefine(npcId);
+        NpcManager.Instance.UpdateNpcPosition(npcId, transform.position);
 
         StartCoroutine(nameof(Actions));
         RefreshNpcStatus();
@@ -59,6 +60,8 @@ public class NpcController : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (Vector3.Distance(this.transform.position, User.Instance.currentCharacter.transform.position) > 2f)
+            User.Instance.currentCharacter.StartNav(transform.position);
         StartCoroutine(nameof(DoInteractive));
     }
 
@@ -79,8 +82,6 @@ public class NpcController : MonoBehaviour
     IEnumerator FaceToPlayer()
     {
         Vector3 faceTo = (User.Instance.currentCharacter.transform.position - transform.position).normalized;
-        Debug.LogWarning(User.Instance.currentCharacter.transform.position);
-        Debug.LogWarning(transform.position);
         while (Vector3.Angle(transform.forward, faceTo) > 5f)
         {
             transform.forward = Vector3.Lerp(transform.forward, faceTo, Time.deltaTime * 5f);
@@ -90,6 +91,10 @@ public class NpcController : MonoBehaviour
 
     IEnumerator DoInteractive()
     {
+        while (User.Instance.currentCharacter.autoNav)
+        {
+            yield return null;
+        }
         yield return StartCoroutine(nameof(FaceToPlayer));
         animator.SetTrigger("Talk");
         NpcManager.Instance.Interactive(npcDefine);

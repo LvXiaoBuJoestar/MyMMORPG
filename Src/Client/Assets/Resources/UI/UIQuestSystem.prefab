@@ -157,7 +157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u63A5\u53D7\u4EFB\u52A1"
+  m_Text: "\u8FFD\u8E2A\u4EFB\u52A1"
 --- !u!1 &2431489445222311453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1169,7 @@ GameObject:
   - component: {fileID: 2431489445846630592}
   - component: {fileID: 2431489445846630595}
   - component: {fileID: 2431489445846630594}
+  - component: {fileID: 6754069705897322117}
   m_Layer: 5
   m_Name: Button_CanSelect
   m_TagString: Untagged
@@ -1225,7 +1226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 43fb5288293fea6498e1052cf2271185, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f598c137a9812c49825c2c49710bbed, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1279,6 +1280,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6754069705897322117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431489445846630596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb69f9340491744e980e02110d41882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabView: {fileID: 0}
+  index: 0
+  activeImage: {fileID: 21300000, guid: 43fb5288293fea6498e1052cf2271185, type: 3}
 --- !u!1 &2431489446000008618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1695,7 @@ GameObject:
   - component: {fileID: 2431489446265738379}
   - component: {fileID: 2431489446265738378}
   - component: {fileID: 2431489446265738381}
+  - component: {fileID: 3586199737616673185}
   m_Layer: 5
   m_Name: Button_InProgress
   m_TagString: Untagged
@@ -1736,7 +1753,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 7f598c137a9812c49825c2c49710bbed, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1789,6 +1806,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3586199737616673185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431489446265738383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb69f9340491744e980e02110d41882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabView: {fileID: 0}
+  index: 0
+  activeImage: {fileID: 21300000, guid: 43fb5288293fea6498e1052cf2271185, type: 3}
 --- !u!1 &2431489446266514070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,7 +2390,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 264, y: 86}
+  m_CellSize: {x: 264, y: 48}
   m_Spacing: {x: 0, y: 4}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -3164,6 +3196,7 @@ MonoBehaviour:
   description: {fileID: 2431489446510791490}
   targetText: {fileID: 2431489445515606388}
   rewardText: {fileID: 2431489447041594890}
+  navButton: {fileID: 2431489446693792453}
 --- !u!1 &7174601483628698236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,6 +3286,7 @@ GameObject:
   - component: {fileID: 7174601483865542543}
   - component: {fileID: 7174601483865542541}
   - component: {fileID: 7174601483865542540}
+  - component: {fileID: 4007578650647250004}
   m_Layer: 5
   m_Name: Spliter
   m_TagString: Untagged
@@ -3320,6 +3354,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4007578650647250004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7174601483865542542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d10f0be01c06fd4ea3ec4bc191aa3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabs:
+  - {fileID: 6754069705897322117}
+  - {fileID: 3586199737616673185}
+  pages: []
 --- !u!1 &9036864177549785621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,11 +4312,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1dcfacd4732964c83ad4dd984df0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Root: {fileID: 0}
   itemPrefab: {fileID: 5133487922791055560, guid: 35e52e59c06ae754881459a1b2d5e735,
     type: 3}
   mainListView: {fileID: 9036864178287952034}
   BranchListView: {fileID: 2431489446580070875}
   questInfo: {fileID: 7174601483441015081}
+  tabView: {fileID: 4007578650647250004}
 --- !u!1 &9036864179165389885
 GameObject:
   m_ObjectHideFlags: 0

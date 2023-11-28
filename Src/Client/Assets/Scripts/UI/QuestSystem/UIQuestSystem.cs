@@ -12,17 +12,32 @@ public class UIQuestSystem : UIWindow
     [SerializeField] ListView BranchListView;
     [SerializeField] UIQuestInfo questInfo;
 
+    [SerializeField] TabView tabView;
+
     private void Start()
     {
         mainListView.onItemSelected += OnQuestSelected;
         BranchListView.onItemSelected += OnQuestSelected;
+        tabView.OnTabSelect += RefreshTab;
         RefreshUI();
     }
 
+    UIQuestItem lastQuestItem = null;
     private void OnQuestSelected(ListView.ListViewItem item)
     {
-        UIQuestItem questItem = item as UIQuestItem;
-        questInfo.SetQuestInfo(questItem.quest);
+        if (lastQuestItem != null)
+            lastQuestItem.Selected = false;
+        lastQuestItem = item as UIQuestItem;
+        questInfo.SetQuestInfo(lastQuestItem.quest);
+    }
+
+    int lastIndex = 0;
+    void RefreshTab(int index)
+    {
+        if (lastIndex == index) return;
+        lastIndex = index;
+        showAvailableList = index == 0;
+        RefreshUI();
     }
 
     void RefreshUI()
@@ -37,7 +52,7 @@ public class UIQuestSystem : UIWindow
         BranchListView.RemoveAll();
     }
 
-    bool showAvailableList = false;
+    bool showAvailableList = true;
     void InitQuestItems()
     {
         foreach (var kv in QuestManager.Instance.allQuests)
